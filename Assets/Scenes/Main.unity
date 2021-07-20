@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 317372088}
-  - component: {fileID: 317372089}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -163,19 +162,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &317372089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317372087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eff6e3a01314354fa1df372990529d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objects: []
 --- !u!1 &401791107
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +239,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -268,6 +255,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee5124629895fa479cbbe131a2a1f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -339,13 +339,14 @@ GameObject:
   - component: {fileID: 583937015}
   - component: {fileID: 583937014}
   - component: {fileID: 583937013}
+  - component: {fileID: 583937018}
   m_Layer: 5
   m_Name: Next Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &583937012
 RectTransform:
   m_ObjectHideFlags: 0
@@ -363,7 +364,7 @@ RectTransform:
   m_AnchorMin: {x: 0.4, y: 0.23525001}
   m_AnchorMax: {x: 0.59875005, y: 0.33275002}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -5.331631, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &583937013
 BoxCollider2D:
@@ -458,6 +459,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583937011}
   m_CullTransparentMesh: 1
+--- !u!114 &583937018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583937011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce3a1f92341f174f86469c6f41a4338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &869149803
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +484,8 @@ GameObject:
   - component: {fileID: 869149805}
   - component: {fileID: 869149804}
   - component: {fileID: 869149808}
+  - component: {fileID: 869149809}
+  - component: {fileID: 869149810}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -578,6 +593,45 @@ MonoBehaviour:
   - {fileID: 2227548435819395791, guid: 8789e4b4444688442bed750b0082c929, type: 3}
   - {fileID: 2227548435819395791, guid: 8789e4b4444688442bed750b0082c929, type: 3}
   - {fileID: 2227548435819395791, guid: 8789e4b4444688442bed750b0082c929, type: 3}
+  CurrentImageNumber: 0
+  ImageNames:
+  - A
+  - B
+  - C
+  - D
+  - E
+  - F
+  - G
+  - H
+  - I
+  - J
+  - K
+  - O
+--- !u!114 &869149809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869149803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ee5124629895fa479cbbe131a2a1f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+--- !u!114 &869149810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869149803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57acc97052df6b846864845dd966843d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935011730
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,6 +646,7 @@ GameObject:
   - component: {fileID: 935011733}
   - component: {fileID: 935011732}
   - component: {fileID: 935011736}
+  - component: {fileID: 935011737}
   m_Layer: 5
   m_Name: New game
   m_TagString: Untagged
@@ -647,7 +702,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 869149808}
         m_TargetAssemblyTypeName: Cell, Assembly-CSharp
-        m_MethodName: Create
+        m_MethodName: CreateField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -661,6 +716,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RandomNumbers, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -752,6 +819,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 535.3, y: 177.4}
   m_EdgeRadius: 0
+--- !u!114 &935011737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935011730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce3a1f92341f174f86469c6f41a4338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142760554
 GameObject:
   m_ObjectHideFlags: 0
@@ -5579,7 +5658,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1234270142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5636,13 +5715,13 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b21295392353b654189cbdfba5a6b757, type: 3}
-    m_FontSize: 16
+    m_FontSize: 60
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
+    m_MaxSize: 70
     m_Alignment: 4
-    m_AlignByGeometry: 0
+    m_AlignByGeometry: 1
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -5670,6 +5749,7 @@ GameObject:
   - component: {fileID: 1253849387}
   - component: {fileID: 1253849386}
   - component: {fileID: 1253849390}
+  - component: {fileID: 1253849391}
   m_Layer: 5
   m_Name: Reset
   m_TagString: Untagged
@@ -5789,6 +5869,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &1253849391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253849384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce3a1f92341f174f86469c6f41a4338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621312607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,6 +5895,7 @@ GameObject:
   - component: {fileID: 1621312610}
   - component: {fileID: 1621312609}
   - component: {fileID: 1621312613}
+  - component: {fileID: 1621312614}
   m_Layer: 5
   m_Name: Home
   m_TagString: Untagged
@@ -5946,3 +6039,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &1621312614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621312607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce3a1f92341f174f86469c6f41a4338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
