@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class RandomSprite : MonoBehaviour
 {
-    public string[] ImageNames = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O" };
-    //public List<int> previous;
-    public static int count;
-    public int CurrentNumber;
-    public Sprite Create()
+    public int ImageNumber;
+    public Sprite Create(int cellNumber)
     {
-        CurrentNumber = RandomNumbers.GetNextRandomNumber(count);
-        var name = ImageNames[CurrentNumber];
-        count++;
+        ImageNumber = RandomNumbers.GetFromList(cellNumber);
+        var name = Logic.GetImageName(ImageNumber);
         return Resources.Load<Sprite>(name);
     }
 }

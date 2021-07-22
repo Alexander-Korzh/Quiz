@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class RandomNumbers : MonoBehaviour
 {
-    public static int CurrentImageNumber;
-    public static string[] ImageNames = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O" };
-    public static List<int> previous = new List<int>();
-    public static void Initialize()
+    public static int CurrentRandomNumber;
+    public static List<int> ListOfRandomNumbers;
+    public static void Initialize(int maxRandomNumber)
     {
-        while (previous.Count < 3)
+        ListOfRandomNumbers = new List<int>();
+        while (ListOfRandomNumbers.Count < Logic.GetCellsCount())
         {
-            CurrentImageNumber = Random.Range(0, ImageNames.Length - 1);
-            if (!previous.Contains(CurrentImageNumber))
+            CurrentRandomNumber = Random.Range(0, maxRandomNumber);
+            if (!ListOfRandomNumbers.Contains(CurrentRandomNumber))
             {
-                previous.Add(CurrentImageNumber);
+                ListOfRandomNumbers.Add(CurrentRandomNumber);
             }
         }
     }
-    public static int GetNextRandomNumber(int count)
+    public static int GetFromList(int indexOfRandomNumber)
     {
-        return previous[count];
+        return ListOfRandomNumbers[indexOfRandomNumber];
     }
 }

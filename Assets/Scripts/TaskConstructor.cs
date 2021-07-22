@@ -5,16 +5,21 @@ using UnityEngine.UI;
 
 public class TaskConstructor : MonoBehaviour
 {
-    public static int answerNumber;
+    public static int correctCellNumber;
     public static int taskNumber;
     public static string task = "";
     public void Answer()
     {
-        answerNumber = Random.Range(0, 2);
-        taskNumber = RandomNumbers.previous[answerNumber];
-        task = "FIND " + RandomNumbers.ImageNames[taskNumber];
+        correctCellNumber = Random.Range(0, Logic.GetCellsCount());
+        taskNumber = RandomNumbers.GetFromList(correctCellNumber);
+        task = "FIND " + Logic.GetImageName(taskNumber);
         var f = transform.GetChild(0);
         var t = f.GetComponent<Text>();
         t.text = task;
+        Debug.Log("Правильный ответ будет " + taskNumber);
+    }
+    public static int GetTaskNumber()
+    {
+        return taskNumber;
     }
 }

@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FieldClick : MonoBehaviour
 {
-    public static int taskNumber = TaskConstructor.taskNumber;
-    void OnMouseDown()
+    public UnityEvent correctAnswer;
+    //public static int taskNumber;
+    public void CheckAnswer()
     {
-        var g = transform.GetComponentInParent<RandomSprite>();
-        if (g.CurrentNumber == taskNumber) Debug.Log("ÏĞÀÂÈËÜÍÎ");
+        //taskNumber = TaskConstructor.taskNumber;
+        var imageInCell = transform.GetComponent<RandomSprite>();
+        if (imageInCell.ImageNumber == TaskConstructor.GetTaskNumber())
+        {
+            correctAnswer.Invoke();
+            Debug.Log("Ïğàâèëüíî !!!!!");
+            Cell.DestroyFeild();
+            Logic.level++;
+            Logic.Initialize();
+            //if (Logic.level == 4) Logic.level = 1;
+        }
     }
 }
