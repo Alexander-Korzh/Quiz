@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Content : MonoBehaviour
 {
+    public GameObject content;
+    public RandomSprite imageInCell;
     public void InsertRandomSprite(int cellNumber)
     {
-        var content = transform.GetChild(1).gameObject;
-        var randomSprite = gameObject.GetComponent<RandomSprite>();
-        content.GetComponent<Image>().sprite = randomSprite.Create(cellNumber);
+        content.GetComponent<Image>().sprite = imageInCell.Create(cellNumber);
     }
 }

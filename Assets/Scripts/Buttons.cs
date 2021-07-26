@@ -3,9 +3,14 @@ using UnityEngine.Events;
 
 public class Buttons : MonoBehaviour
 {
-    public UnityEvent click;
+    public UnityEvent MouseDown;
+    public UnityEvent MouseUp;
     void OnMouseDown()
     {
-        click.Invoke();
+        MouseDown.Invoke();
+    }
+    void OnMouseUp()
+    {
+        MouseUp.Invoke();
     }
 }
