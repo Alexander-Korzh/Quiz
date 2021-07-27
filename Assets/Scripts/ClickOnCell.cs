@@ -7,20 +7,21 @@ using DG.Tweening;
 public class ClickOnCell : MonoBehaviour
 {
     private Logic logic;
+    private Stars stars;
     public BounceEffect contentBounceEffect;
     public EaseInBounceEffect contentEaseInBounceEffect;
     public RandomSprite imageInCell;
-    private bool correctAnswerFlag;
     void Start()
     {
         logic = transform.root.GetComponent<Logic>();
+        stars = transform.root.GetComponent<Stars>();
     }
     public void CheckAnswer()
     {
-        if (imageInCell.ImageNumber == Quest.GetTaskNumber())
+        if (imageInCell.ImageNumber == Quest.TaskNumber)
         {
-            correctAnswerFlag = true;
-            contentBounceEffect.Create();
+            StartCoroutine(CorrectAnswerEffects());
+            stars.Push();
             Debug.Log("Правильно !!!!!");
         }
         else
@@ -29,9 +30,10 @@ public class ClickOnCell : MonoBehaviour
             Debug.Log("Неправильно");
         }
     }
-    public void Commit()
+    public IEnumerator CorrectAnswerEffects()
     {
-        if (correctAnswerFlag == true ) logic.NextLevel();
-        correctAnswerFlag = false;
+        contentBounceEffect.Create();
+        yield return contentBounceEffect.Create().WaitForCompletion();
+        logic.NextLevel();
     }
 }

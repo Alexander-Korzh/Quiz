@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RandomSprite : MonoBehaviour
 {
-    public int ImageNumber;
+    public int ImageNumber { get; private set; }
     public Sprite Create(int cellNumber)
     {
         ImageNumber = RandomNumbers.GetFromList(cellNumber);

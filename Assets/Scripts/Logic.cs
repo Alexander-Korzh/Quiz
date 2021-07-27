@@ -9,21 +9,25 @@ public class Logic : MonoBehaviour
     public static int cellsInLineCount { get; private set; }
     public Quest task;
     public Field field;
+    public GameObject RestartPlane;
     public GameObject RestartButton;
     public ParticleSystem psystem;
     public TextEffects taskEffects;
     public Text taskText;
-    public static int level;
+    public Image plane;
+    public UnityEvent restart;
+    public static int Level { get; private set; }
     private static string[] ImageNames = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z" };
     void Start()
     {
-        //taskText.color = new Color(1,1,1,0);
+        plane.color = new Color(0, 0, 0, 0);
+        taskText.color = new Color(1, 1, 1, 0);
         cellsInLineCount = 3;
-        level = 0;
+        Level = 0;
     }
     public static int GetCellsCount()
     {
-        return level * cellsInLineCount;
+        return Level * cellsInLineCount;
     }
     public static string GetImageName(int indexInArray)
     {
@@ -31,21 +35,15 @@ public class Logic : MonoBehaviour
     }
     public void NextLevel()
     {
-        level++;
+        Level++;
         RandomNumbers.Initialize(ImageNames.Length - 1);
-        psystem.Play();
         task.Create();
-        //task.Write();
-        StartCoroutine(taskEffects.Appearance());
+        StartCoroutine(taskEffects.ChangeText());
         field.Create();
-
     }
     public void Restart()
     {
-        field.DestroyField();
-    }
-    public static int GetLevel()
-    {
-        return level;
+        restart.Invoke();
+        Level = 0;
     }
 }

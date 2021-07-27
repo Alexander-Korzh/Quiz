@@ -4,16 +4,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
+using DG.Tweening.Core;
 
 public class TextEffects : MonoBehaviour
 {
-    public Text textToFade;
-    public IEnumerator Appearance()
+    public Text gameObjectWithText;
+    public IEnumerator ChangeText()
     {
-        var tween1 = textToFade.DOFade(0f, 0.2f);
-        yield return tween1.WaitForCompletion();
-        textToFade.text = Quest.task;
-        var tween = textToFade.DOFade(1f, 0.2f);
-        yield return tween.WaitForCompletion();
+        yield return Fade(0).WaitForCompletion();
+        gameObjectWithText.text = Quest.task;
+        yield return Fade(1).WaitForCompletion();
+    }
+    public TweenerCore<Color, Color, DG.Tweening.Plugins.Options.ColorOptions> Fade(float alfa)
+    {
+        return gameObjectWithText.DOFade(alfa, 0.2f);
     }
 }

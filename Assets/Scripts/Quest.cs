@@ -7,24 +7,20 @@ using UnityEngine.UI;
 public class Quest : MonoBehaviour
 {
     public static int CorrectCellNumber { get; private set; }
-    public static int taskNumber;
+    public static int TaskNumber { get; private set; }
     public static List<int> previousTaskNumbers = new List<int>();
-    public Text text;
+    public Text gameObjectWithText;
     public static string task = "";
     public void Create()
     {
         CorrectCellNumber = Random.Range(0, Logic.GetCellsCount());
-        taskNumber = RandomNumbers.GetFromList(CorrectCellNumber);
-        previousTaskNumbers.Add(taskNumber);
-        task = "FIND " + Logic.GetImageName(taskNumber);
-        Debug.Log("Правильный ответ будет " + taskNumber);
-    }
-    public static int GetTaskNumber()
-    {
-        return taskNumber;
+        TaskNumber = RandomNumbers.GetFromList(CorrectCellNumber);
+        previousTaskNumbers.Add(TaskNumber);
+        task = "FIND " + Logic.GetImageName(TaskNumber);
+        Debug.Log("Правильный ответ будет под номером" + TaskNumber);
     }
     public void Write()
     {
-        text.text = task;
+        gameObjectWithText.text = task;
     }
 }

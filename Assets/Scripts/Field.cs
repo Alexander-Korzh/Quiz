@@ -11,17 +11,17 @@ public class Field : MonoBehaviour
     public static List<GameObject> cellsOnField;
     public void Create()
     {
-        DestroyField();
+        Destroy();
         cellsOnField = new List<GameObject>();
         for (int cellNumber = 0; cellNumber < Logic.GetCellsCount(); cellNumber++)
         {
             var cell = Instantiate(cellPrefab, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
             cell.GetComponent<CellConstructor>().CreateCell(cellNumber);
-            if ( Logic.GetLevel() == 1 ) cell.GetComponent<Effects>().Bounce();
+            if ( Logic.Level == 1 ) cell.GetComponent<BounceEffect>().Create();
             cellsOnField.Add(cell);
         }
     }
-    public void DestroyField()
+    public void Destroy()
     {
         if (cellsOnField != null)
         {

@@ -15,7 +15,7 @@ public class CellConstructor : MonoBehaviour
     }
     public void CreatePosition(int cellNumber)
     {
-        var levelCorrection = Logic.GetLevel()*Size - Size;
+        var levelCorrection = Logic.Level*Size - Size;
         switch (cellNumber)
         {
             case 0:
@@ -28,7 +28,7 @@ public class CellConstructor : MonoBehaviour
             case 4:
             case 5:
                 xPosition = cellNumber * Size - Size * 4;
-                yPosition = levelCorrection - Size;
+                yPosition = levelCorrection - Size ;
                 break;
             case 6:
             case 7:
