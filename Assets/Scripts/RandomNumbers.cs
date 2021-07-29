@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomNumbers : MonoBehaviour
+public static class RandomNumbers
 {
-    public static int CurrentRandomNumber;
+    public static int CurrentRandomNumber { get; private set; }
     public static List<int> ListOfRandomNumbers;
     public static void Initialize(int maxRandomNumber)
     {

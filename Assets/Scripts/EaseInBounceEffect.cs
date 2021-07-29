@@ -1,10 +1,11 @@
 using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class EaseInBounceEffect : MonoBehaviour
 {
     public void Create()
     {
-        transform.DOPunchPosition(new Vector3(20, 0, 0), 1, 10, 0.5f);
+       transform.DOPunchPosition(new Vector3(20, 0, 0), 1, 10, 0.5f);
     }
 }

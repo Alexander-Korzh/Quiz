@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class Logic : MonoBehaviour
 {
-    public static int cellsInLineCount { get; private set; }
-    public Quest task;
+    public const int cellsInLineCount = 3;
+    public const int maxLevel = 3;
     public Field field;
     public GameObject RestartPlane;
     public GameObject RestartButton;
@@ -16,13 +16,13 @@ public class Logic : MonoBehaviour
     public Text taskText;
     public Image plane;
     public UnityEvent restart;
+    public RectTransform planeRectTransform;
     public static int Level { get; private set; }
     private static string[] ImageNames = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z" };
     void Start()
     {
         plane.color = new Color(0, 0, 0, 0);
         taskText.color = new Color(1, 1, 1, 0);
-        cellsInLineCount = 3;
         Level = 0;
     }
     public static int GetCellsCount()
@@ -37,13 +37,19 @@ public class Logic : MonoBehaviour
     {
         Level++;
         RandomNumbers.Initialize(ImageNames.Length - 1);
-        task.Create();
-        StartCoroutine(taskEffects.ChangeText());
+        Task.Create();
+        StartCoroutine(taskEffects.ChangeTextWithFade());
         field.Create();
     }
     public void Restart()
     {
         restart.Invoke();
         Level = 0;
+    }
+    public IEnumerator RestartWithDelay(float delayInSeconds)
+    {
+        planeRectTransform.SetAsLastSibling();
+        yield return new WaitForSeconds(delayInSeconds);
+        Restart();
     }
 }

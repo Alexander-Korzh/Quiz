@@ -1,9 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using DG.Tweening;
-using UnityEngine.Events;
 
 public class Field : MonoBehaviour
 {
@@ -17,15 +13,14 @@ public class Field : MonoBehaviour
         {
             var cell = Instantiate(cellPrefab, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
             cell.GetComponent<CellConstructor>().CreateCell(cellNumber);
-            if ( Logic.Level == 1 ) cell.GetComponent<BounceEffect>().Create();
+            if ( Logic.Level == 1 ) 
+                cell.GetComponent<BounceEffect>().Create();
             cellsOnField.Add(cell);
         }
     }
-    public void Destroy()
+    public static void Destroy()
     {
         if (cellsOnField != null)
-        {
             for (int i = 0; i < cellsOnField.Count; i++) Destroy(cellsOnField[i]);
-        }
     }
 }

@@ -18,10 +18,9 @@ public class ClickOnCell : MonoBehaviour
     }
     public void CheckAnswer()
     {
-        if (imageInCell.ImageNumber == Quest.TaskNumber)
+        if (imageInCell.ImageNumber == Task.TaskNumber)
         {
-            StartCoroutine(CorrectAnswerEffects());
-            stars.Push();
+            StartCoroutine(ActionsIfCorrect());
             Debug.Log("Правильно !!!!!");
         }
         else
@@ -30,10 +29,20 @@ public class ClickOnCell : MonoBehaviour
             Debug.Log("Неправильно");
         }
     }
-    public IEnumerator CorrectAnswerEffects()
+    public IEnumerator ActionsIfCorrect()
     {
         contentBounceEffect.Create();
+        stars.Push();
         yield return contentBounceEffect.Create().WaitForCompletion();
-        logic.NextLevel();
+        CheckMaxLevel();
+    }
+    public void CheckMaxLevel()
+    {
+        if (Logic.Level == Logic.maxLevel)
+        {
+            StartCoroutine(logic.RestartWithDelay(1));
+        }
+        else
+            logic.NextLevel();
     }
 }

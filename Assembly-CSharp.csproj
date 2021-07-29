@@ -68,16 +68,16 @@
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Scripts\Buttons.cs" />
+    <Compile Include="Assets\Scripts\ImageEffects.cs" />
+    <Compile Include="Assets\Scripts\Stars.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Scripts\Quest.cs" />
     <Compile Include="Assets\Scripts\CellConstructor.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\BounceEffect.cs" />
     <Compile Include="Assets\Scripts\RandomSprite.cs" />
-    <Compile Include="Assets\Scripts\Plane.cs" />
-    <Compile Include="Assets\Scripts\Stars.cs" />
+    <Compile Include="Assets\Scripts\Task.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DOTween\DOTween.XML" />
