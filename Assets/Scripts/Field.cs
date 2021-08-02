@@ -13,7 +13,7 @@ public class Field : MonoBehaviour
         {
             var cell = Instantiate(cellPrefab, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
             cell.GetComponent<CellConstructor>().CreateCell(cellNumber);
-            if ( Logic.Level == 1 ) 
+            if (Logic.Level == 1)
                 cell.GetComponent<BounceEffect>().Create();
             cellsOnField.Add(cell);
         }
