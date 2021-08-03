@@ -1,6 +1,3 @@
-using UnityEngine;
-using DG.Tweening;
-
 public class ButtonFeedback : TransformEffects
 {
     void OnMouseDown()

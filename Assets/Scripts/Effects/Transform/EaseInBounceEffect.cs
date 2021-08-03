@@ -5,7 +5,7 @@ using UnityEngine;
 public class EaseInBounceEffect : TransformEffects
 {
     protected BoxCollider2D contentCollider;
-    void Start()
+    private void Start()
     {
         contentCollider = gameObject.GetComponent<BoxCollider2D>();
     }
@@ -15,7 +15,7 @@ public class EaseInBounceEffect : TransformEffects
         yield return PunchPosition().WaitForCompletion();
         contentCollider.enabled = true;
     }
-    public void Create()
+    public void DoEaseInBounce()
     {
         StartCoroutine(UncliclablePunch());
     }

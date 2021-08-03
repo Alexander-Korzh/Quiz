@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class ClickOnCell : MonoBehaviour
 {
+    [SerializeField]
     private CellConstructor cellConstructor;
+    [SerializeField]
     private CorrectClick correctClick;
+    [SerializeField]
     private IncorrectClick incorrectClick;
-    void Start()
+    private void Start()
     {
         cellConstructor = gameObject.GetComponent<CellConstructor>();
         correctClick = gameObject.GetComponent<CorrectClick>();
@@ -16,13 +16,13 @@ public class ClickOnCell : MonoBehaviour
     }
     public void CheckAnswer()
     {
-        if (cellConstructor.cellNumber == Task.CorrectCellNumber)
+        if (cellConstructor.GetCellNumber() == Task.GetCorrectCellNumber())
         {
-            correctClick.StartActions();
+            correctClick.DoActions();
         }
         else
         {
-            incorrectClick.ActionsIfIncorrect();
+            incorrectClick.DoActions();
         }
     }
 }

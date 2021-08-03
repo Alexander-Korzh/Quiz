@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CellImage : MonoBehaviour
 {
-    public SpriteRenderer content;
+    [SerializeField]
+    private SpriteRenderer content;
     private void Start()
     {
         content = gameObject.GetComponent<SpriteRenderer>();

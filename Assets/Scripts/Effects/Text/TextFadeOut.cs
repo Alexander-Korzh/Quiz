@@ -1,6 +1,6 @@
 public class TextFadeOut : TextFadeEffect
 {
-    public void Create()
+    public void DoFadeOut()
     {
         Fade(1);
     }

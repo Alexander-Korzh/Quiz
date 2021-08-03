@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class IncorrectClick : MonoBehaviour
 {
-    public EaseInBounceEffect contentEaseInBounceEffect;
-    public void ActionsIfIncorrect()
+    [SerializeField]
+    private EaseInBounceEffect contentEaseInBounceEffect;
+    private void Start()
     {
-        contentEaseInBounceEffect.Create();
+        contentEaseInBounceEffect = transform.GetChild(1).GetComponent<EaseInBounceEffect>();
+    }
+    public void DoActions()
+    {
+        contentEaseInBounceEffect.DoEaseInBounce();
         Debug.Log("Неправильно");
     }
 }

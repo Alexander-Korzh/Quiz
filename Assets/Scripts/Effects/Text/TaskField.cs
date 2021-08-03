@@ -6,7 +6,7 @@ public class TaskField : TextFadeEffect
     public IEnumerator ChangeText()
     {
         yield return Fade(0).WaitForCompletion();
-        TextComponent.text = Task.TaskText;
+        textComponent.text = Task.GetTaskText();
         yield return Fade(1).WaitForCompletion();
     }
 }

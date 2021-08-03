@@ -4,31 +4,39 @@ using UnityEngine;
 
 public class CorrectClick : MonoBehaviour
 {
+    [SerializeField]
     private Logic logic;
+    [SerializeField]
     private Stars stars;
-    public BounceEffect contentBounceEffect;
-    void Start()
+    [SerializeField]
+    private RestartLogic restartLogic;
+    [SerializeField]
+    private BounceEffect contentBounceEffect;
+    private void Start()
     {
         logic = transform.root.GetComponent<Logic>();
         stars = transform.root.GetComponent<Stars>();
+        restartLogic = transform.root.GetComponent<RestartLogic>();
+        contentBounceEffect = transform.GetChild(1).GetComponent<BounceEffect>();
     }
-    public void StartActions()
+    public void DoActions()
     {
-        StartCoroutine(StartActionsCoroutine());
+        StartCoroutine(DoActionsCoroutine());
         Debug.Log("Правильно !!!!!");
     }
-    public IEnumerator StartActionsCoroutine()
+    protected IEnumerator DoActionsCoroutine()
     {
-        contentBounceEffect.Create();
+        contentBounceEffect.DoBounce();
         stars.Push();
-        yield return contentBounceEffect.Create().WaitForCompletion();
+        yield return contentBounceEffect.DoBounce().WaitForCompletion();
+        DOTween.PauseAll();
         CheckMaxLevel();
     }
     public void CheckMaxLevel()
     {
-        if (Logic.Level == Logic.maxLevel)
+        if (Logic.GetLevel() == Logic.MaxLevel)
         {
-            logic.RestartWithDelay(0.5f);
+            restartLogic.RestartWithDelay(RestartLogic.DelayBeforeRestart);
         }
         else
             logic.NextLevel();

@@ -2,36 +2,35 @@ using UnityEngine;
 
 public static class CellPosition 
 {
-    public static Vector2 localPosition { get; private set; }
-    public static float CellPositionX { get; private set; }
-    public static float CellPositionY { get; private set; }
-    public static float CellSizeX { get; private set; } = 0.95f;
-    public static float CellSizeY { get; private set; } = 0.95f;
+    private static float cellPositionX;
+    private static float cellPositionY;
+    private static float cellSizeX = 0.95f;
+    private static float cellSizeY = 0.95f;
     public static Vector2 Create(int cellNumber)
     {
-        var levelCorrection = Logic.Level * CellSizeY - CellSizeX;
+        var levelCorrection = Logic.GetLevel() * cellSizeY - cellSizeX;
         var floatCellNumber = (float)cellNumber;
         switch (cellNumber)
         {
             case 0:
             case 1:
             case 2:
-                CellPositionX = floatCellNumber * CellSizeX - CellSizeX;
-                CellPositionY = levelCorrection;
+                cellPositionX = cellSizeX * ( floatCellNumber - 1 );
+                cellPositionY = levelCorrection;
                 break;
             case 3:
             case 4:
             case 5:
-                CellPositionX = floatCellNumber * CellSizeX - CellSizeX * 4;
-                CellPositionY = levelCorrection - CellSizeY;
+                cellPositionX = cellSizeX * ( floatCellNumber - 4 );
+                cellPositionY = levelCorrection - cellSizeY;
                 break;
             case 6:
             case 7:
             case 8:
-                CellPositionX = floatCellNumber * CellSizeX - CellSizeX * 7;
-                CellPositionY = levelCorrection - CellSizeY * 2;
+                cellPositionX = cellSizeX * ( floatCellNumber - 7 );
+                cellPositionY = levelCorrection - cellSizeY * 2;
                 break;
         }
-        return new Vector2(CellPositionX, CellPositionY);
+        return new Vector2(cellPositionX, cellPositionY);
     }
 }

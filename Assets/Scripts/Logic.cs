@@ -1,45 +1,50 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Logic : MonoBehaviour
 {
-    public const int cellsInLineCount = 3;
-    public const int maxLevel = 3;
-    public Field field;
+    public const int CellsInLineCount = 3; // ограничено классом CellPosition
+    public const int MaxLevel = 3; // ограничено классом CellPosition
     public TaskField taskField;
-    public UnityEvent restart;
-    public static int Level { get; private set; } = 0;
-    private static string[] ImageNames = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "O", "P", "Q", "R", "S", "T", "V", "W", "X", "Y", "Z" };
+    [SerializeField]
+    private Field field;
+    [SerializeField]
+    private Text taskFieldTextComponent;
+    private static int level  = 0;
+    private void Start()
+    {
+        taskFieldTextComponent = taskField.GetComponent<Text>();
+        field = gameObject.GetComponent<Field>();
+        SmoothStart();
+    }
+    public void SmoothStart()
+    {
+        StartCoroutine(SmoothStartCoroutine());
+    }
+    private IEnumerator SmoothStartCoroutine()
+    {
+        taskFieldTextComponent.color = new Color(1, 1, 1, 0);
+        field.Destroy();
+        var previousTaskNumbers = Task.GetPreviousTaskNumbers();
+        previousTaskNumbers.Clear();
+        level = 0;
+        yield return null;
+    }
+    public static int GetLevel()
+    {
+        return level;
+    }
     public static int GetCellsCount()
     {
-        return Level * cellsInLineCount;
-    }
-    public static string GetImageName(int indexInArray)
-    {
-        return ImageNames[indexInArray];
+        return level * CellsInLineCount;
     }
     public void NextLevel()
     {
-        Level++;
-        RandomNumbers.CreateList(ImageNames.Length - 1);
+        level++;
+        RandomNumbers.CreateList(InputData.GetInputArrayLength() - 1);
         Task.Create();
         StartCoroutine(taskField.ChangeText());
         field.Create();
-    }
-    public void Restart()
-    {
-        Task.previousTaskNumbers.Clear();
-        Level = 0;
-        restart.Invoke();
-    }
-    public IEnumerator RestartWithDelayCoroutine(float delayInSeconds)
-    {
-        yield return new WaitForSeconds(delayInSeconds);
-        Restart();
-    }
-    public void RestartWithDelay(float delayInSeconds)
-    {
-        StartCoroutine(RestartWithDelayCoroutine(delayInSeconds));
     }
 }

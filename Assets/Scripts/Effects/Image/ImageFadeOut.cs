@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class ImageFadeOut : ImageEffects
 {
-    public void FadeOut()
+    public void DoFadeOut()
     {
         Fade(1);
     }
