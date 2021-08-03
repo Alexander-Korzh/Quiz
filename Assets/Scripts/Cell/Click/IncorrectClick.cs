@@ -6,7 +6,8 @@ public class IncorrectClick : MonoBehaviour
     private EaseInBounceEffect contentEaseInBounceEffect;
     private void Start()
     {
-        contentEaseInBounceEffect = transform.GetChild(1).GetComponent<EaseInBounceEffect>();
+        var content = transform.GetChild(1);
+        contentEaseInBounceEffect = content.GetComponent<EaseInBounceEffect>();
     }
     public void DoActions()
     {

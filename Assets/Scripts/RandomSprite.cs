@@ -1,11 +1,16 @@
 using UnityEngine;
 
-public static class RandomSprite 
+public class RandomSprite : MonoBehaviour
 {
-    public static Sprite Create(int cellNumber)
+    [SerializeField]
+    private InputImages inputImages;
+    private void Start()
+    {
+        inputImages = gameObject.GetComponent<InputImages>();
+    }
+    public Sprite Create(int cellNumber)
     {
         var imageNumber = RandomNumbers.GetFromList(cellNumber);
-        var name = InputData.GetImageName(imageNumber);
-        return Resources.Load<Sprite>(name);
+        return inputImages.GetImage(imageNumber);
     }
 }

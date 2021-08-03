@@ -1,4 +1,7 @@
 
+/// <summary>
+///   ласс дл€ именовани€ клеток на игровом поле. Ќа данный момент не используетс€
+/// </summary>
 public static class CellName
 {
     public static string Create(int cellNumber)

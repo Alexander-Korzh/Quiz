@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+///  Класс для управления общей игровой логикой уровней
+/// </summary>
 public class Logic : MonoBehaviour
 {
     public const int CellsInLineCount = 3; // ограничено классом CellPosition
@@ -11,11 +14,18 @@ public class Logic : MonoBehaviour
     private Field field;
     [SerializeField]
     private Text taskFieldTextComponent;
+    [SerializeField]
+    private InputImages inputImages;
+    [SerializeField]
+    private Task task;
+    [SerializeField]
     private static int level  = 0;
     private void Start()
     {
-        taskFieldTextComponent = taskField.GetComponent<Text>();
+        task = gameObject.GetComponent<Task>();
         field = gameObject.GetComponent<Field>();
+        inputImages = gameObject.GetComponent<InputImages>();
+        taskFieldTextComponent = taskField.GetComponent<Text>();
         SmoothStart();
     }
     public void SmoothStart()
@@ -24,9 +34,10 @@ public class Logic : MonoBehaviour
     }
     private IEnumerator SmoothStartCoroutine()
     {
+        inputImages.Initialize();
         taskFieldTextComponent.color = new Color(1, 1, 1, 0);
         field.Destroy();
-        var previousTaskNumbers = Task.GetPreviousTaskNumbers();
+        var previousTaskNumbers = task.GetPreviousTaskNumbers();
         previousTaskNumbers.Clear();
         level = 0;
         yield return null;
@@ -42,9 +53,9 @@ public class Logic : MonoBehaviour
     public void NextLevel()
     {
         level++;
-        RandomNumbers.CreateList(InputData.GetInputArrayLength() - 1);
-        Task.Create();
+        RandomNumbers.CreateList(inputImages.GetListLength() - 1);
+        task.Create();
         StartCoroutine(taskField.ChangeText());
-        field.Create();
+        StartCoroutine(field.Create());
     }
 }

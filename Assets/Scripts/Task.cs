@@ -1,42 +1,53 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Task 
+public class Task : MonoBehaviour
 {
-    private static List<int> previousTaskNumbers = new List<int>();
-    private static int CorrectCellNumber;
-    private static int TaskNumber;
-    private static string TaskText = "";
-    private static string CorrectImageName  = "";
-    public static void Create()
+    [SerializeField]
+    private int TaskNumber;
+    [SerializeField]
+    private int CorrectCellNumber;
+    [SerializeField]
+    private string TaskText = "";
+    [SerializeField]
+    private string CorrectImageName  = "";
+    [SerializeField]
+    private InputImages inputImages;
+    [SerializeField]
+    private List<int> previousTaskNumbers = new List<int>();
+    private void Start()
+    {
+        inputImages = gameObject.GetComponent<InputImages>();
+    }
+    public void Create()
     {
         CorrectCellNumber = CreateCorrectCellNumber();
         TaskNumber = RandomNumbers.GetFromList(CorrectCellNumber);
         previousTaskNumbers.Add(TaskNumber);
-        CorrectImageName = InputData.GetImageName(TaskNumber);
+        CorrectImageName = inputImages.GetImageName(TaskNumber);
         TaskText = "Find " + CorrectImageName;
         Debug.Log("Правильный ответ : " + CorrectImageName);
     }
-    public static int CheckPreviousAnswers(int potencialCorrectCellNumber)
+    public int CheckPreviousAnswers(int potencialCorrectCellNumber)
     {
         var taskNumber = RandomNumbers.GetFromList(potencialCorrectCellNumber);
         if (previousTaskNumbers.Contains(taskNumber))
             potencialCorrectCellNumber = CreateCorrectCellNumber();
         return potencialCorrectCellNumber;
     }
-    private static int CreateCorrectCellNumber()
+    private int CreateCorrectCellNumber()
     {
         return CheckPreviousAnswers(RandomNumbers.GetRandomCellNumber());
     }
-    public static int GetCorrectCellNumber()
+    public  int GetCorrectCellNumber()
     {
         return CorrectCellNumber;
     }
-    public static List<int> GetPreviousTaskNumbers()
+    public List<int> GetPreviousTaskNumbers()
     {
         return previousTaskNumbers;
     }
-    public static string GetTaskText()
+    public string GetTaskText()
     {
         return TaskText;
     }

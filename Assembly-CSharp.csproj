@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Cell\Click\ClickOnCell.cs" />
     <Compile Include="Assets\Scripts\Effects\Text\TextFadeEffect.cs" />
     <Compile Include="Assets\Scripts\Logic.cs" />
+    <Compile Include="Assets\Scripts\RestartLogic.cs" />
     <Compile Include="Assets\Scripts\Effects\Transform\ButtonFeedback.cs" />
     <Compile Include="Assets\Scripts\Cell\CellName.cs" />
     <Compile Include="Assets\Scripts\Effects\Image\ImageFadeOut.cs" />
@@ -87,8 +88,7 @@
     <Compile Include="Assets\Scripts\Effects\Transform\BounceEffect.cs" />
     <Compile Include="Assets\Scripts\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
-    <Compile Include="Assets\Scripts\InputData.cs" />
-    <Compile Include="Assets\Scripts\RestartLogic.cs" />
+    <Compile Include="Assets\Scripts\InputImages.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DOTween\DOTween.XML" />

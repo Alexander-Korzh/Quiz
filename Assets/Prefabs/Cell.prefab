@@ -102,8 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280329dd9c218af46a32d201a408e544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentBounceEffect: {fileID: 4347556063096273714}
-  contentEaseInBounceEffect: {fileID: 6788803458893001909}
+  task: {fileID: 0}
+  cellConstructor: {fileID: 0}
+  correctClick: {fileID: 0}
+  incorrectClick: {fileID: 0}
 --- !u!114 &2752968587431423175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c032454140a813488babec4e7ebe15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellNumber: 0
+  contentCollider: {fileID: 3680611682491439953}
 --- !u!114 &688051738492018509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 4800080754785335925}
+  randomSprite: {fileID: 0}
 --- !u!114 &4023037185627407377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +158,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b654e4203d15fe5448c79ae23cf80483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logic: {fileID: 0}
+  stars: {fileID: 0}
+  restartLogic: {fileID: 0}
   contentBounceEffect: {fileID: 4347556063096273714}
 --- !u!114 &1786589747584911402
 MonoBehaviour:
