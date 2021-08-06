@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using DG.Tweening.Core;
 
 public class TextFadeEffect : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class TextFadeEffect : MonoBehaviour
     {
         textComponent = gameObject.GetComponent<Text>();
     }
-    public TweenerCore<Color, Color, DG.Tweening.Plugins.Options.ColorOptions> Fade(float alfa)
+    public Tweener Fade(float alfa)
     {
         return textComponent.DOFade(alfa, 0.2f);
     }

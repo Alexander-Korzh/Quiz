@@ -9,17 +9,19 @@ public class InputImages : MonoBehaviour
     public const int InputListsCount = 2;
     public List<Sprite> firstInputSpriteList;
     public List<Sprite> secondInputSpriteList;
-    public List<Sprite>[] inputLists = new List<Sprite>[InputListsCount];
+    private List<Sprite>[] inputLists = new List<Sprite>[InputListsCount];
     private List<Sprite> imageList;
-    private void Start()
+    void Start()
     {
         inputLists[0] = firstInputSpriteList;
         inputLists[1] = secondInputSpriteList;
     }
     public void Initialize()
     {
+        Start();
         var randomIndex = Random.Range(0, inputLists.Length);
         imageList = inputLists[randomIndex];
+        Debug.Log(inputLists[1][1]);
     }
     public List<Sprite> GetList()
     {

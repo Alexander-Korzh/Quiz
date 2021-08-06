@@ -34,9 +34,9 @@ public class Logic : MonoBehaviour
     }
     private IEnumerator SmoothStartCoroutine()
     {
-        inputImages.Initialize();
         taskFieldTextComponent.color = new Color(1, 1, 1, 0);
         field.Destroy();
+        inputImages.Initialize();
         var previousTaskNumbers = task.GetPreviousTaskNumbers();
         previousTaskNumbers.Clear();
         level = 0;
@@ -53,7 +53,8 @@ public class Logic : MonoBehaviour
     public void NextLevel()
     {
         level++;
-        RandomNumbers.CreateList(inputImages.GetListLength() - 1);
+        var t = inputImages.GetListLength() - 1;
+        RandomNumbers.CreateList(t);
         task.Create();
         StartCoroutine(taskField.ChangeText());
         StartCoroutine(field.Create());

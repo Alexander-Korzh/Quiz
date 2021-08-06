@@ -1024,7 +1024,7 @@ MonoBehaviour:
   taskField: {fileID: 1234270146}
   field: {fileID: 1317037703}
   taskFieldTextComponent: {fileID: 0}
-  inputImages: {fileID: 0}
+  inputImages: {fileID: 1317037706}
   task: {fileID: 0}
 --- !u!4 &1317037701
 Transform:
