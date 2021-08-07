@@ -11,18 +11,13 @@ public class RestartLogic : MonoBehaviour
     {
         logic = gameObject.GetComponent<Logic>();
     }
-    public void Restart()
+    private IEnumerator RestartCoroutine(float delayInSeconds)
     {
-        logic.SmoothStart();
+        yield return logic.SmoothStartCoroutine();
         restart.Invoke();
     }
-    private IEnumerator RestartWithDelayCoroutine(float delayInSeconds)
+    public void Restart(float delayInSeconds)
     {
-        yield return new WaitForSeconds(delayInSeconds);
-        Restart();
-    }
-    public void RestartWithDelay(float delayInSeconds)
-    {
-        StartCoroutine(RestartWithDelayCoroutine(delayInSeconds));
+        StartCoroutine(RestartCoroutine(delayInSeconds));
     }
 }

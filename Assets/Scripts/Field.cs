@@ -9,15 +9,24 @@ public class Field : MonoBehaviour
     public GameObject cellPrefab;
     [SerializeField]
     private List<GameObject> cellsOnField = new List<GameObject>();
+    [SerializeField]
+    private CellPosition cellPosition;
+    [SerializeField]
+    private Logic logic;
+    private void Start()
+    {
+        cellPosition = gameObject.GetComponent<CellPosition>();
+        logic = gameObject.GetComponent<Logic>();
+    }
     public IEnumerator Create()
     {
         AddCells();
-        for (int cellNumber = 0; cellNumber < Logic.GetCellsCount(); cellNumber++)
+        for (int cellNumber = 0; cellNumber < logic.GetCellsCount(); cellNumber++)
         {
             var cell = cellsOnField[cellNumber];
             var cellConstructor = cell.GetComponent<CellConstructor>();
             cellConstructor.CreateCell(cellNumber);
-            if (Logic.GetLevel() == 1)
+            if (logic.GetLevel() == 1)
                 cell.GetComponent<BounceEffect>().DoBounce();
         }
         Debug.Log("Поле создано");
@@ -31,11 +40,11 @@ public class Field : MonoBehaviour
     }
     public void AddCells()
     {
-        for (int i = 0; i < Logic.CellsInLineCount; i++)
+        for (int cellNumber = 0; cellNumber < Logic.CellsInLineCount; cellNumber++)
         {
-            var cell = Instantiate(cellPrefab, new Vector2(0, 0), Quaternion.identity, gameObject.transform);
+            var cell = Instantiate(cellPrefab, cellPosition.Create(cellNumber), Quaternion.identity, gameObject.transform);
             cellsOnField.Add(cell);
-            Debug.Log("Клетка добавлена в поле под номером " + cellsOnField[i]);
+            Debug.Log("Клетка добавлена в поле под номером " + cellsOnField[cellNumber]);
         }
     }
 }

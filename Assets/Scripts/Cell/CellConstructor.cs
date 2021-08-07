@@ -9,9 +9,7 @@ public class CellConstructor : MonoBehaviour
 
     public void CreateCell (int cellNumber)
     {
-        //gameObject.name = CellName.Create(cellNumber); // Метод для именования логичных названий префабов клеток. Тормозит игру
         this.cellNumber = cellNumber;
-        gameObject.transform.localPosition = CellPosition.Create(cellNumber);
         var cellImage = gameObject.GetComponent<CellImage>();
         cellImage.InsertRandom(cellNumber);
         EnableCollider();
@@ -23,6 +21,7 @@ public class CellConstructor : MonoBehaviour
     }
     public void EnableCollider()
     {
-        if (contentCollider.enabled == false) contentCollider.enabled = true; 
+        if (!contentCollider.enabled) 
+            contentCollider.enabled = true; 
     }
 }

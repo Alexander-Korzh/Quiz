@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
@@ -6,22 +5,20 @@ using UnityEngine;
 /// </summary>
 public class InputImages : MonoBehaviour
 {
-    public const int InputListsCount = 2;
     public List<Sprite> firstInputSpriteList;
     public List<Sprite> secondInputSpriteList;
-    private List<Sprite>[] inputLists = new List<Sprite>[InputListsCount];
+    private List<List<Sprite>> inputLists = new List<List<Sprite>>();
     private List<Sprite> imageList;
-    void Start()
+    void StartSettings()
     {
-        inputLists[0] = firstInputSpriteList;
-        inputLists[1] = secondInputSpriteList;
+        inputLists.Add( firstInputSpriteList );
+        inputLists.Add( secondInputSpriteList );
     }
     public void Initialize()
     {
-        Start();
-        var randomIndex = Random.Range(0, inputLists.Length);
+        StartSettings();
+        var randomIndex = Random.Range(0, inputLists.Count);
         imageList = inputLists[randomIndex];
-        Debug.Log(inputLists[1][1]);
     }
     public List<Sprite> GetList()
     {

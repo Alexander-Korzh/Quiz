@@ -26,19 +26,20 @@ public class CorrectClick : MonoBehaviour
     }
     protected IEnumerator DoActionsCoroutine()
     {
-        contentBounceEffect.DoBounce();
-        stars.Push();
         yield return contentBounceEffect.DoBounce().WaitForCompletion();
         DOTween.PauseAll();
         CheckMaxLevel();
     }
     public void CheckMaxLevel()
     {
-        if (Logic.GetLevel() == Logic.MaxLevel)
+        if (logic.GetLevel() == Logic.MaxLevel)
         {
-            restartLogic.RestartWithDelay(RestartLogic.DelayBeforeRestart);
+            restartLogic.Restart(RestartLogic.DelayBeforeRestart);
         }
         else
+        {
+            stars.Push();
             logic.NextLevel();
+        }    
     }
 }

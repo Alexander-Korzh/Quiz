@@ -3,14 +3,22 @@ using UnityEngine;
 /// <summary>
 ///   ласс дл€ создани€ списка рандомных неповтор€ющихс€ номеров
 /// </summary>
-public static class RandomNumbers
+public class RandomNumbers : MonoBehaviour
 {
-    private static int CurrentRandomNumber;
-    private static List<int> ListOfRandomNumbers;
-    public static void CreateList(int InputListCount)
+    [SerializeField]
+    private int CurrentRandomNumber;
+    [SerializeField]
+    private List<int> ListOfRandomNumbers;
+    private Logic logic;
+    private void Start()
+    {
+        logic = gameObject.GetComponent<Logic>();
+    }
+    public void CreateList(int InputListCount)
     {
         ListOfRandomNumbers = new List<int>();
-        while (ListOfRandomNumbers.Count < Logic.GetCellsCount())
+        Debug.Log(logic);
+        while (ListOfRandomNumbers.Count < logic.GetCellsCount())
         {
             CurrentRandomNumber = Random.Range(0, InputListCount);
             if (!ListOfRandomNumbers.Contains(CurrentRandomNumber))
@@ -19,12 +27,16 @@ public static class RandomNumbers
             }
         }
     }
-    public static int GetFromList(int indexOfRandomNumber)
+    public int GetFromList(int indexOfRandomNumber)
     {
         return ListOfRandomNumbers[indexOfRandomNumber];
     }
-    public static int GetRandomCellNumber()
+    public int GetRandomCellNumber()
     {
-        return Random.Range(0, Logic.GetCellsCount());
+        return Random.Range(0, logic.GetCellsCount());
+    }
+    public void ClearList()
+    {
+        ListOfRandomNumbers.Clear();
     }
 }

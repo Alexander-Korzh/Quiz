@@ -8,7 +8,7 @@ public class CellImage : MonoBehaviour
     private SpriteRenderer content;
     [SerializeField]
     private RandomSprite randomSprite;
-    public void Start()
+    private void Start()
     {
         //randomSprite = transform.root.GetComponent<RandomSprite>();
         content = transform.GetChild(1).GetComponent<SpriteRenderer>();

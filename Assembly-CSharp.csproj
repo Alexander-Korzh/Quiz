@@ -61,7 +61,6 @@
     <Compile Include="Assets\Scripts\Logic.cs" />
     <Compile Include="Assets\Scripts\RestartLogic.cs" />
     <Compile Include="Assets\Scripts\Effects\Transform\ButtonFeedback.cs" />
-    <Compile Include="Assets\Scripts\Cell\CellName.cs" />
     <Compile Include="Assets\Scripts\Effects\Image\ImageFadeOut.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\RandomNumbers.cs" />
@@ -82,13 +81,14 @@
     <Compile Include="Assets\Scripts\Effects\Text\TaskField.cs" />
     <Compile Include="Assets\Scripts\Cell\Click\CorrectClick.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUI.cs" />
+    <Compile Include="Assets\Scripts\InputImages.cs" />
     <Compile Include="Assets\Scripts\Cell\CellConstructor.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Scripts\Effects\Transform\BounceEffect.cs" />
     <Compile Include="Assets\Scripts\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Task.cs" />
-    <Compile Include="Assets\Scripts\InputImages.cs" />
+    <Compile Include="Assets\Scripts\GarbageCollector.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DOTween\DOTween.XML" />

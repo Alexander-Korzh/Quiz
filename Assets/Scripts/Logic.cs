@@ -7,8 +7,10 @@ using UnityEngine.UI;
 /// </summary>
 public class Logic : MonoBehaviour
 {
-    public const int CellsInLineCount = 3; // ограничено классом CellPosition
-    public const int MaxLevel = 3; // ограничено классом CellPosition
+    public const int CellsInLineCount = 3; 
+    public const int MaxLevel = 3;
+    [SerializeField]
+    private int level = 0;
     public TaskField taskField;
     [SerializeField]
     private Field field;
@@ -19,42 +21,44 @@ public class Logic : MonoBehaviour
     [SerializeField]
     private Task task;
     [SerializeField]
-    private static int level  = 0;
+    private RandomNumbers randomNumbers;
     private void Start()
     {
         task = gameObject.GetComponent<Task>();
         field = gameObject.GetComponent<Field>();
         inputImages = gameObject.GetComponent<InputImages>();
         taskFieldTextComponent = taskField.GetComponent<Text>();
+        randomNumbers = gameObject.GetComponent<RandomNumbers>();
         SmoothStart();
     }
     public void SmoothStart()
     {
         StartCoroutine(SmoothStartCoroutine());
     }
-    private IEnumerator SmoothStartCoroutine()
+    public IEnumerator SmoothStartCoroutine()
     {
+        System.GC.Collect();
+        level = 0;
         taskFieldTextComponent.color = new Color(1, 1, 1, 0);
         field.Destroy();
         inputImages.Initialize();
-        var previousTaskNumbers = task.GetPreviousTaskNumbers();
-        previousTaskNumbers.Clear();
-        level = 0;
+        task.ClearPreviousTaskNumbers();
+        randomNumbers.ClearList();
         yield return null;
     }
-    public static int GetLevel()
+    public int GetLevel()
     {
         return level;
     }
-    public static int GetCellsCount()
+    public int GetCellsCount()
     {
         return level * CellsInLineCount;
     }
     public void NextLevel()
     {
         level++;
-        var t = inputImages.GetListLength() - 1;
-        RandomNumbers.CreateList(t);
+        var inputListLength = inputImages.GetListLength() - 1;
+        randomNumbers.CreateList(inputListLength);
         task.Create();
         StartCoroutine(taskField.ChangeText());
         StartCoroutine(field.Create());

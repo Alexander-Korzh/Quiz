@@ -15,14 +15,17 @@ public class Task : MonoBehaviour
     private InputImages inputImages;
     [SerializeField]
     private List<int> previousTaskNumbers = new List<int>();
+    [SerializeField]
+    private RandomNumbers randomNumbers;
     private void Start()
     {
         inputImages = gameObject.GetComponent<InputImages>();
+        randomNumbers = gameObject.GetComponent<RandomNumbers>();
     }
     public void Create()
     {
         CorrectCellNumber = CreateCorrectCellNumber();
-        TaskNumber = RandomNumbers.GetFromList(CorrectCellNumber);
+        TaskNumber = randomNumbers.GetFromList(CorrectCellNumber);
         previousTaskNumbers.Add(TaskNumber);
         CorrectImageName = inputImages.GetImageName(TaskNumber);
         TaskText = "Find " + CorrectImageName;
@@ -30,25 +33,26 @@ public class Task : MonoBehaviour
     }
     public int CheckPreviousAnswers(int potencialCorrectCellNumber)
     {
-        var taskNumber = RandomNumbers.GetFromList(potencialCorrectCellNumber);
+        var taskNumber = randomNumbers.GetFromList(potencialCorrectCellNumber);
         if (previousTaskNumbers.Contains(taskNumber))
             potencialCorrectCellNumber = CreateCorrectCellNumber();
         return potencialCorrectCellNumber;
     }
     private int CreateCorrectCellNumber()
     {
-        return CheckPreviousAnswers(RandomNumbers.GetRandomCellNumber());
+        var randomCellNumber = randomNumbers.GetRandomCellNumber();
+        return CheckPreviousAnswers(randomCellNumber);
     }
-    public  int GetCorrectCellNumber()
+    public int GetCorrectCellNumber()
     {
         return CorrectCellNumber;
-    }
-    public List<int> GetPreviousTaskNumbers()
-    {
-        return previousTaskNumbers;
     }
     public string GetTaskText()
     {
         return TaskText;
+    }
+    public void ClearPreviousTaskNumbers()
+    {
+        previousTaskNumbers.Clear();
     }
 }

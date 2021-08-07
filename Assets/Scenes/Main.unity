@@ -1002,6 +1002,8 @@ GameObject:
   - component: {fileID: 1317037708}
   - component: {fileID: 1317037707}
   - component: {fileID: 1317037706}
+  - component: {fileID: 1317037710}
+  - component: {fileID: 1317037709}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -1021,11 +1023,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee5124629895fa479cbbe131a2a1f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   taskField: {fileID: 1234270146}
   field: {fileID: 1317037703}
   taskFieldTextComponent: {fileID: 0}
   inputImages: {fileID: 1317037706}
   task: {fileID: 0}
+  randomNumbers: {fileID: 0}
 --- !u!4 &1317037701
 Transform:
   m_ObjectHideFlags: 0
@@ -1070,6 +1074,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 1480901256992309604, guid: 7aef44cc5fefaf9489aa99a495887c4d, type: 3}
   cellsOnField: []
+  cellPosition: {fileID: 0}
+  logic: {fileID: 0}
 --- !u!114 &1317037704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1247,6 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputImages: {fileID: 1317037706}
+  randomNumbers: {fileID: 0}
 --- !u!114 &1317037708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1265,6 +1272,34 @@ MonoBehaviour:
   CorrectImageName: 
   inputImages: {fileID: 1317037706}
   previousTaskNumbers: 
+  randomNumbers: {fileID: 0}
+--- !u!114 &1317037709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317037699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1327df4c7759147800881e757bcfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logic: {fileID: 0}
+--- !u!114 &1317037710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317037699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0565b62c1a0cb44f8e71d83f82f1077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentRandomNumber: 0
+  ListOfRandomNumbers: 
 --- !u!4 &1342794470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 200984106648755942, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
