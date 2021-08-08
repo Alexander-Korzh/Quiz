@@ -1530,10 +1530,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.CanvasRenderer, UnityEngine
-        m_MethodName: 
-        m_Mode: 4
+      - m_Target: {fileID: 1317037711}
+        m_TargetAssemblyTypeName: NewGameLogic, Assembly-CSharp
+        m_MethodName: SmoothStart
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1541,7 +1541,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &1621312610
 MonoBehaviour:
   m_ObjectHideFlags: 0
