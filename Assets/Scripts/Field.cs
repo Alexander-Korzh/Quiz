@@ -12,11 +12,11 @@ public class Field : MonoBehaviour
     [SerializeField]
     private CellPosition cellPosition;
     [SerializeField]
-    private Logic logic;
+    private LevelLogic logic;
     private void Start()
     {
         cellPosition = gameObject.GetComponent<CellPosition>();
-        logic = gameObject.GetComponent<Logic>();
+        logic = gameObject.GetComponent<LevelLogic>();
     }
     public IEnumerator Create()
     {
@@ -40,7 +40,7 @@ public class Field : MonoBehaviour
     }
     public void AddCells()
     {
-        for (int cellNumber = 0; cellNumber < Logic.CellsInLineCount; cellNumber++)
+        for (int cellNumber = 0; cellNumber < LevelLogic.CellsInLineCount; cellNumber++)
         {
             var cell = Instantiate(cellPrefab, cellPosition.Create(cellNumber), Quaternion.identity, gameObject.transform);
             cellsOnField.Add(cell);

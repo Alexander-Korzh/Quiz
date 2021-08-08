@@ -5,7 +5,7 @@ using UnityEngine;
 public class CorrectClick : MonoBehaviour
 {
     [SerializeField]
-    private Logic logic;
+    private LevelLogic logic;
     [SerializeField]
     private Stars stars;
     [SerializeField]
@@ -14,7 +14,7 @@ public class CorrectClick : MonoBehaviour
     private BounceEffect contentBounceEffect;
     private void Start()
     {
-        logic = transform.root.GetComponent<Logic>();
+        logic = transform.root.GetComponent<LevelLogic>();
         stars = transform.root.GetComponent<Stars>();
         restartLogic = transform.root.GetComponent<RestartLogic>();
         contentBounceEffect = transform.GetChild(1).GetComponent<BounceEffect>();
@@ -29,10 +29,11 @@ public class CorrectClick : MonoBehaviour
         yield return contentBounceEffect.DoBounce().WaitForCompletion();
         DOTween.PauseAll();
         CheckMaxLevel();
+        Debug.Log("Правильно !!!!!");
     }
     public void CheckMaxLevel()
     {
-        if (logic.GetLevel() == Logic.MaxLevel)
+        if (logic.GetLevel() == LevelLogic.MaxLevel)
         {
             restartLogic.Restart(RestartLogic.DelayBeforeRestart);
         }

@@ -9,10 +9,11 @@ public class RandomNumbers : MonoBehaviour
     private int CurrentRandomNumber;
     [SerializeField]
     private List<int> ListOfRandomNumbers;
-    private Logic logic;
+    [SerializeField]
+    private LevelLogic logic;
     private void Start()
     {
-        logic = gameObject.GetComponent<Logic>();
+        logic = gameObject.GetComponent<LevelLogic>();
     }
     public void CreateList(int InputListCount)
     {

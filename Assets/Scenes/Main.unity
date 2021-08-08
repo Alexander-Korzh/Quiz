@@ -722,7 +722,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1317037700}
-        m_TargetAssemblyTypeName: Logic, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelLogic, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
@@ -994,16 +994,17 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1317037701}
-  - component: {fileID: 1317037700}
   - component: {fileID: 1317037703}
   - component: {fileID: 1317037702}
+  - component: {fileID: 1317037709}
   - component: {fileID: 1317037704}
   - component: {fileID: 1317037705}
   - component: {fileID: 1317037708}
   - component: {fileID: 1317037707}
   - component: {fileID: 1317037706}
   - component: {fileID: 1317037710}
-  - component: {fileID: 1317037709}
+  - component: {fileID: 1317037711}
+  - component: {fileID: 1317037700}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -1025,9 +1026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   taskField: {fileID: 1234270146}
-  field: {fileID: 1317037703}
-  taskFieldTextComponent: {fileID: 0}
-  inputImages: {fileID: 1317037706}
+  field: {fileID: 0}
+  inputImages: {fileID: 0}
   task: {fileID: 0}
   randomNumbers: {fileID: 0}
 --- !u!4 &1317037701
@@ -1300,6 +1300,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentRandomNumber: 0
   ListOfRandomNumbers: 
+  logic: {fileID: 0}
+--- !u!114 &1317037711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317037699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b993d2d15f146f4fabfaa115dba0f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskField: {fileID: 1234270146}
+  field: {fileID: 0}
+  taskFieldTextComponent: {fileID: 0}
+  inputImages: {fileID: 0}
+  task: {fileID: 0}
+  randomNumbers: {fileID: 0}
+  logic: {fileID: 0}
 --- !u!4 &1342794470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 200984106648755942, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
@@ -1486,7 +1506,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1317037700}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Logic, Assembly-CSharp
         m_MethodName: SmoothStart
         m_Mode: 1
