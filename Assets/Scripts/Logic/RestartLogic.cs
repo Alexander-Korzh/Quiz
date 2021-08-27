@@ -14,6 +14,7 @@ public class RestartLogic : MonoBehaviour
     private IEnumerator RestartCoroutine(float delayInSeconds)
     {
         yield return newGameLogic.SmoothStartCoroutine();
+        System.GC.Collect();
         restart.Invoke();
     }
     public void Restart(float delayInSeconds)

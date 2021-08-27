@@ -36,10 +36,8 @@ public class NewGameLogic : MonoBehaviour
         logic.ResetLevel();
         field.Destroy();
         inputImages.Initialize();
-        randomNumbers.ClearList();
         task.ClearPreviousTaskNumbers();
         taskFieldTextComponent.color = new Color(1, 1, 1, 0);
-        System.GC.Collect();
         yield return null;
     }
 }

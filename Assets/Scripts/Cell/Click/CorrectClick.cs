@@ -22,14 +22,14 @@ public class CorrectClick : MonoBehaviour
     public void DoActions()
     {
         StartCoroutine(DoActionsCoroutine());
-        Debug.Log("Правильно !!!!!");
+        //Debug.Log("Правильно !!!!!");
     }
     protected IEnumerator DoActionsCoroutine()
     {
-        yield return contentBounceEffect.DoBounce().WaitForCompletion();
-        DOTween.PauseAll();
+        stars.Push();
+        contentBounceEffect.DoBounce();
+        yield return new WaitUntil(() => DOTween.TotalPlayingTweens() == 0);
         CheckMaxLevel();
-        Debug.Log("Правильно !!!!!");
     }
     public void CheckMaxLevel()
     {
@@ -39,7 +39,6 @@ public class CorrectClick : MonoBehaviour
         }
         else
         {
-            stars.Push();
             logic.NextLevel();
         }    
     }

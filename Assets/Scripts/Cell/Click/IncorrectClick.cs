@@ -12,6 +12,6 @@ public class IncorrectClick : MonoBehaviour
     public void DoActions()
     {
         contentEaseInBounceEffect.DoEaseInBounce();
-        Debug.Log("Неправильно");
+        //Debug.Log("Неправильно");
     }
 }

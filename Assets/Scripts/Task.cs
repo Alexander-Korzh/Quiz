@@ -4,52 +4,39 @@ using UnityEngine;
 public class Task : MonoBehaviour
 {
     [SerializeField]
-    private int TaskNumber;
+    public int taskNumber;
     [SerializeField]
-    private int CorrectCellNumber;
+    private int correctCellNumber;
     [SerializeField]
-    private string TaskText = "";
-    [SerializeField]
-    private string CorrectImageName  = "";
-    [SerializeField]
-    private InputImages inputImages;
-    [SerializeField]
-    private List<int> previousTaskNumbers = new List<int>();
+    private List<int> previousTaskNumbers;
     [SerializeField]
     private RandomNumbers randomNumbers;
     private void Start()
     {
-        inputImages = gameObject.GetComponent<InputImages>();
+        previousTaskNumbers = new List<int>(LevelLogic.MaxLevel);
         randomNumbers = gameObject.GetComponent<RandomNumbers>();
     }
     public void Create()
     {
-        CorrectCellNumber = CreateCorrectCellNumber();
-        TaskNumber = randomNumbers.GetFromList(CorrectCellNumber);
-        previousTaskNumbers.Add(TaskNumber);
-        CorrectImageName = inputImages.GetImageName(TaskNumber);
-        TaskText = "Find " + CorrectImageName;
-        Debug.Log("Правильный ответ : " + CorrectImageName);
+        correctCellNumber = CreateCorrectCellNumber();
+        previousTaskNumbers.Add(taskNumber);
+        //Debug.Log("Правильный ответ : " + correctImageName);
     }
-    public int CheckPreviousAnswers(int potencialCorrectCellNumber)
+    public int CreateCorrectCellNumber(int cellNumber)
     {
-        var taskNumber = randomNumbers.GetFromList(potencialCorrectCellNumber);
+        taskNumber = randomNumbers.GetFromList(cellNumber);
         if (previousTaskNumbers.Contains(taskNumber))
-            potencialCorrectCellNumber = CreateCorrectCellNumber();
-        return potencialCorrectCellNumber;
+            cellNumber = CreateCorrectCellNumber();
+        return cellNumber;
     }
-    private int CreateCorrectCellNumber()
+    public int CreateCorrectCellNumber()
     {
-        var randomCellNumber = randomNumbers.GetRandomCellNumber();
-        return CheckPreviousAnswers(randomCellNumber);
+        int randomCellNumber = randomNumbers.GetRandomCellNumber();
+        return CreateCorrectCellNumber(randomCellNumber);
     }
     public int GetCorrectCellNumber()
     {
-        return CorrectCellNumber;
-    }
-    public string GetTaskText()
-    {
-        return TaskText;
+        return correctCellNumber;
     }
     public void ClearPreviousTaskNumbers()
     {

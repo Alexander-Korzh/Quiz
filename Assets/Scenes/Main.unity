@@ -985,6 +985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   task: {fileID: 1317037708}
+  inputImages: {fileID: 1317037706}
 --- !u!1 &1317037699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1031,7 @@ MonoBehaviour:
   inputImages: {fileID: 0}
   task: {fileID: 0}
   randomNumbers: {fileID: 0}
+  anyStarParticleSystem: {fileID: 0}
 --- !u!4 &1317037701
 Transform:
   m_ObjectHideFlags: 0
@@ -1115,6 +1117,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!114 &1317037705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,11 +1280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d42ee71e652a24b8ad79c0d87cbe50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TaskNumber: 0
-  CorrectCellNumber: 0
-  TaskText: 
-  CorrectImageName: 
-  inputImages: {fileID: 1317037706}
+  taskNumber: 0
+  correctCellNumber: 0
   previousTaskNumbers: 
   randomNumbers: {fileID: 0}
 --- !u!114 &1317037709

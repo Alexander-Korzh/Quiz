@@ -10,10 +10,9 @@ public class CellConstructor : MonoBehaviour
     public void CreateCell (int cellNumber)
     {
         this.cellNumber = cellNumber;
-        var cellImage = gameObject.GetComponent<CellImage>();
+        CellImage cellImage = gameObject.GetComponent<CellImage>();
         cellImage.InsertRandom(cellNumber);
-        EnableCollider();
-        Debug.Log("Клетка " + cellNumber + " создана");
+        //Debug.Log("Клетка " + cellNumber + " создана");
     }
     public int GetCellNumber()
     {

@@ -7,7 +7,7 @@ public class InputImages : MonoBehaviour
 {
     public List<Sprite> firstInputSpriteList;
     public List<Sprite> secondInputSpriteList;
-    private List<List<Sprite>> inputLists = new List<List<Sprite>>();
+    private List<List<Sprite>> inputLists = new List<List<Sprite>>(2);
     private List<Sprite> imageList;
     void StartSettings()
     {
