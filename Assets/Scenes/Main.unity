@@ -679,7 +679,6 @@ GameObject:
   - component: {fileID: 935011732}
   - component: {fileID: 935011736}
   - component: {fileID: 935011737}
-  - component: {fileID: 935011738}
   m_Layer: 5
   m_Name: New game
   m_TagString: Untagged
@@ -746,8 +745,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1612212160}
-        m_TargetAssemblyTypeName: ImageFadeIn, Assembly-CSharp
-        m_MethodName: DoFadeIn
+        m_TargetAssemblyTypeName: FadeIn, Assembly-CSharp
+        m_MethodName: DoAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -862,18 +861,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ce3a1f92341f174f86469c6f41a4338, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &935011738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935011730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e93fd55b91ef60419bc7478e8f1a23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1234270141
@@ -1025,7 +1012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee5124629895fa479cbbe131a2a1f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   taskField: {fileID: 1234270146}
   field: {fileID: 0}
   inputImages: {fileID: 0}
@@ -1060,8 +1046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c032454140a813488babec4e7ebe15c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellNumber: 0
-  contentCollider: {fileID: 0}
+  cellData: {fileID: 0}
+  cellImage: {fileID: 0}
 --- !u!114 &1317037703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,8 +1131,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1612212161}
-        m_TargetAssemblyTypeName: ImageFadeOut, Assembly-CSharp
-        m_MethodName: DoFadeOut
+        m_TargetAssemblyTypeName: FadeOut, Assembly-CSharp
+        m_MethodName: DoAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1180,7 +1166,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 935011738}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TextFadeOut, Assembly-CSharp
         m_MethodName: DoFadeOut
         m_Mode: 1
@@ -1280,10 +1266,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d42ee71e652a24b8ad79c0d87cbe50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  taskNumber: 0
-  correctCellNumber: 0
-  previousTaskNumbers: 
   randomNumbers: {fileID: 0}
+  logic: {fileID: 0}
 --- !u!114 &1317037709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,7 +1293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0565b62c1a0cb44f8e71d83f82f1077, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentRandomNumber: 0
   ListOfRandomNumbers: 
   logic: {fileID: 0}
 --- !u!114 &1317037711
@@ -1329,7 +1312,6 @@ MonoBehaviour:
   taskFieldTextComponent: {fileID: 0}
   inputImages: {fileID: 0}
   task: {fileID: 0}
-  randomNumbers: {fileID: 0}
   logic: {fileID: 0}
 --- !u!4 &1342794470 stripped
 Transform:
@@ -1450,6 +1432,7 @@ GameObject:
   - component: {fileID: 1621312611}
   - component: {fileID: 1621312610}
   - component: {fileID: 1621312613}
+  - component: {fileID: 1621312615}
   - component: {fileID: 1621312614}
   - component: {fileID: 1621312609}
   m_Layer: 5
@@ -1641,6 +1624,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ce3a1f92341f174f86469c6f41a4338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1621312615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621312607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd898153eb134641bbda6d44da53019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &1865856294 stripped
