@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CellConstructor : MonoBehaviour
+public class CellConstructor : MonoBehaviour, ICell
 {
     [SerializeField]
     private CellData cellData;
@@ -11,10 +11,16 @@ public class CellConstructor : MonoBehaviour
         cellData = gameObject.GetComponent<CellData>();
         cellImage = gameObject.GetComponent<CellImage>();
     }
-    public void CreateCell (int cellNumber)
+    public void UpdateCell(int cellNumber)
     {
-        cellData.SetNumber(cellNumber);
-        cellImage.InsertRandom(cellNumber);
+        SetNumber(cellNumber);
+        SetImage();
         //Debug.Log("Клетка " + cellNumber + " создана");
+    }
+    public void SetNumber(int cellNumber) => cellData.SetNumber(cellNumber);
+    public void SetImage()
+    {
+        cellImage.InsertRandom(
+            cellData.Number);
     }
 }

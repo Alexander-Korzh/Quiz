@@ -27,7 +27,7 @@ public class ClickOnCell : MonoBehaviour
         }
         else
         {
-            incorrectClick.DoAction.Invoke();
+            incorrectClick.DoActions();
         }
     }
 }

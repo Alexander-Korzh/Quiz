@@ -13,9 +13,6 @@ public class CellImage : Content
         randomSprite = transform.root.GetComponent<RandomSprite>();
         ImageInCell = content.GetComponent<SpriteRenderer>();
     }
-    public void InsertRandom(int cellNumber)
-    {
-        var ImageByNumber = randomSprite.Create(cellNumber);
-        ImageInCell.sprite = ImageByNumber;
-    }
+    public void InsertRandom(int cellNumber) => 
+        ImageInCell.sprite = randomSprite.Create(cellNumber);
 }

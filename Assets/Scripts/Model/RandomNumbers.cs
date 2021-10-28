@@ -7,13 +7,13 @@ using UnityEngine;
 public class RandomNumbers : MonoBehaviour
 {
     [SerializeField]
-    private List<int> ListOfRandomNumbers;
-    [SerializeField]
     private LevelLogic logic;
+    [SerializeField]
+    private List<int> ListOfRandomNumbers;
     private void Start()
     {
-        ListOfRandomNumbers = new List<int>(LevelLogic.MaxCellsCount);
         logic = gameObject.GetComponent<LevelLogic>();
+        ListOfRandomNumbers = new List<int>(LevelLogic.MaxCellsCount);
     }
     public void CreateList(int InputListCount)
     {

@@ -1,15 +1,9 @@
-using System;
-using UnityEngine;
-
 public class IncorrectClick : Content
 {
-    [SerializeField]
-    public Action DoAction;
-    private void Start()
+    public void DoActions()
     {
-        DoAction = () =>
-            content
-                .GetComponent<EasyInBounce>()
-                .DoEffect();
+        content
+            .GetComponent<EasyInBounce>()
+            .DoEffect();
     }
 }

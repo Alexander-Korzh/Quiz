@@ -1,3 +1,6 @@
+// Author: Alexander Kozhikhov - https://github.com/Alexander-Korzh
+
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,48 +12,44 @@ public class LevelLogic : MonoBehaviour
     public const int CellsInLineCount = 3; 
     public const int MaxLevel = 3;
     public const int MaxCellsCount = MaxLevel * CellsInLineCount;
-    [SerializeField]
     public int Level { get; private set; } = 0;
     public TaskField taskField;
-    [SerializeField]
-    private Field field;
-    [SerializeField]
-    private InputImages inputImages;
-    [SerializeField]
     private Task task;
-    [SerializeField]
+    private Field field;
+    private InputImages inputImages;
+    private FadeEffects textFadeEffect;
     private RandomNumbers randomNumbers;
-    [SerializeField]
     private ParticleSystem anyStarParticleSystem;
+    private Action<GameObject> firstLevelAction;
 
     private void Start()
     {
         task = gameObject.GetComponent<Task>();
         field = gameObject.GetComponent<Field>();
         inputImages = gameObject.GetComponent<InputImages>();
+        textFadeEffect = taskField.GetComponent<FadeEffects>();
         randomNumbers = gameObject.GetComponent<RandomNumbers>();
         anyStarParticleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
+        firstLevelAction = (cell) =>
+           cell.GetComponent<ScalePuncher>()
+               .PunchScale(0.3f); //Разобраться с инкапсуляцией;
     }
-    public void ResetLevel()
-    {
-        Level = 0;
-    }
-    public int GetCellsCount()
-    {
-        return Level * CellsInLineCount;
-    }
-    public void NextLevel()
-    {
-        StartCoroutine(NextLevelCoroutine());
-    }
+    public int GetCellsCount() => Level * CellsInLineCount;
+    public void ResetLevel() => Level = 0;
+    public void NextLevel() => StartCoroutine(NextLevelCoroutine());
     public IEnumerator NextLevelCoroutine()
     {
         ++Level;
         randomNumbers.CreateList(
             inputImages.GetListLength());
         task.Create();
-        yield return new WaitUntil(() => anyStarParticleSystem.isStopped);
-        yield return StartCoroutine(field.Create());
-        yield return StartCoroutine(taskField.ChangeTaskField()); 
+        yield return new WaitUntil(
+            () => anyStarParticleSystem.isStopped);
+        yield return StartCoroutine(
+            field.Create<CellConstructor>(
+                firstLevelAction)); //Разобраться, читаемо это, или нет;
+        yield return StartCoroutine(
+            taskField.ChangeTaskField(
+                (float alfa) => textFadeEffect.ChangeAlfa(alfa))); //Разобраться с инкапсуляцией;
     }
 }

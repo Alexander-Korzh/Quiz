@@ -7,6 +7,7 @@ public class Bounce : ScalePuncher
     }
     public void DoEffect()
     {
-        tweenMode.DoUnclicable(() => PunchScale(0.1f));
+        tweenMode.DoUnclicable(
+            () => PunchScale(0.1f));
     }
 }

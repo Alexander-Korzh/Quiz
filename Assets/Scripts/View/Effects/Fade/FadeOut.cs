@@ -1,7 +1,4 @@
 public class FadeOut : FadeEffects
 {
-    public void DoAction()
-    {
-        ChangeAlfa(1);
-    }
+    public void DoAction() => ChangeAlfa(1);
 }

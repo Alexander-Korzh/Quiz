@@ -60,11 +60,10 @@
     <Compile Include="Assets\Scripts\Model\Logic\LevelLogic.cs" />
     <Compile Include="Assets\Scripts\Model\Logic\RestartLogic.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Transform\ButtonFeedback.cs" />
-    <Compile Include="Assets\Scripts\View\CellView.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Fade\FadeOut.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\Model\RandomNumbers.cs" />
-    <Compile Include="Assets\Scripts\Model\Field.cs" />
+    <Compile Include="Assets\Scripts\Model\Logic\Field.cs" />
     <Compile Include="Assets\Scripts\Model\Cell\CellImage.cs" />
     <Compile Include="Assets\Scripts\Model\TweenMode.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Transform\ScaleChanger.cs" />
@@ -74,8 +73,12 @@
     <Compile Include="Assets\Scripts\Model\Logic\NewGameLogic.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Scripts\Controller\Buttons.cs" />
+    <Compile Include="Assets\Scripts\View\Effects\Transform\ScalePuncher.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Fade\FadeEffects.cs" />
+    <Compile Include="Assets\Scripts\View\Effects\Transform\EasyInBounce.cs" />
     <Compile Include="Assets\Scripts\View\Stars.cs" />
+    <Compile Include="Assets\Scripts\View\Effects\Transform\PositionPuncher.cs" />
+    <Compile Include="Assets\Scripts\Model\Cell\Content.cs" />
     <Compile Include="Assets\Scripts\Model\Cell\CellPosition.cs" />
     <Compile Include="Assets\Scripts\Model\Cell\Click\IncorrectClick.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
@@ -89,10 +92,7 @@
     <Compile Include="Assets\Scripts\View\Effects\Transform\Bounce.cs" />
     <Compile Include="Assets\Scripts\Model\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Model\Task.cs" />
-    <Compile Include="Assets\Scripts\Model\Cell\Content.cs" />
-    <Compile Include="Assets\Scripts\View\Effects\Transform\EasyInBounce.cs" />
-    <Compile Include="Assets\Scripts\View\Effects\Transform\PositionPuncher.cs" />
-    <Compile Include="Assets\Scripts\View\Effects\Transform\ScalePuncher.cs" />
+    <Compile Include="Assets\Scripts\Model\Cell\ICell.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DOTween\DOTween.XML" />

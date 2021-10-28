@@ -7,6 +7,7 @@ public class EasyInBounce : PositionPuncher
     }
     public void DoEffect()
     {
-        tweenMode.DoUnclicable ( () => PunchPosition(0.3f) );
+        tweenMode.DoUnclicable ( 
+            () => PunchPosition(0.3f));
     }
 }

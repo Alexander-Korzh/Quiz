@@ -32,7 +32,8 @@ public class CorrectClick : Content
     {
         stars.Push();
         contentBounceEffect.Invoke();
-        yield return new WaitUntil(() => DOTween.TotalPlayingTweens() == 0);
+        yield return new WaitUntil(
+            () => DOTween.TotalPlayingTweens() == 0);
         CheckMaxLevel();
     }
     public void CheckMaxLevel()

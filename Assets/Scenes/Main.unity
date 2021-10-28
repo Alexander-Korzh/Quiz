@@ -876,6 +876,7 @@ GameObject:
   - component: {fileID: 1234270144}
   - component: {fileID: 1234270143}
   - component: {fileID: 1234270146}
+  - component: {fileID: 1234270147}
   m_Layer: 5
   m_Name: 'Task '
   m_TagString: Untagged
@@ -973,6 +974,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   task: {fileID: 1317037708}
   inputImages: {fileID: 1317037706}
+--- !u!114 &1234270147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1234270141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244397b2d37a6d246977bcce9a4f675a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1317037699
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1006,7 @@ GameObject:
   - component: {fileID: 1317037710}
   - component: {fileID: 1317037711}
   - component: {fileID: 1317037700}
+  - component: {fileID: 1317037712}
   m_Layer: 0
   m_Name: Field
   m_TagString: Untagged
@@ -1013,11 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskField: {fileID: 1234270146}
-  field: {fileID: 0}
-  inputImages: {fileID: 0}
-  task: {fileID: 0}
-  randomNumbers: {fileID: 0}
-  anyStarParticleSystem: {fileID: 0}
+  textFadeEffect: {fileID: 0}
 --- !u!4 &1317037701
 Transform:
   m_ObjectHideFlags: 0
@@ -1061,8 +1071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellPrefab: {fileID: 1480901256992309604, guid: 7aef44cc5fefaf9489aa99a495887c4d, type: 3}
-  cellsOnField: []
-  cellPosition: {fileID: 0}
+  cells: []
+  cellInLinePosition: {fileID: 0}
   logic: {fileID: 0}
 --- !u!114 &1317037704
 MonoBehaviour:
@@ -1313,6 +1323,18 @@ MonoBehaviour:
   inputImages: {fileID: 0}
   task: {fileID: 0}
   logic: {fileID: 0}
+--- !u!114 &1317037712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317037699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244397b2d37a6d246977bcce9a4f675a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1342794470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 200984106648755942, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
