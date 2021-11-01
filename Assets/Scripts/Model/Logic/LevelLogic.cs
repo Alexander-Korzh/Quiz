@@ -1,5 +1,6 @@
 // Author: Alexander Kozhikhov - https://github.com/Alexander-Korzh
 
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -14,25 +15,22 @@ public class LevelLogic : MonoBehaviour
     public const int MaxCellsCount = MaxLevel * CellsInLineCount;
     public int Level { get; private set; } = 0;
     public TaskField taskField;
-    private Task task;
-    private Field field;
-    private InputImages inputImages;
-    private FadeEffects textFadeEffect;
-    private RandomNumbers randomNumbers;
-    private ParticleSystem anyStarParticleSystem;
-    private Action<GameObject> firstLevelAction;
+    public Task task { get; private set; }
+    public Field field { get; private set; }
+    public InputImages inputImages { get; private set; }
+    public RandomNumbers randomNumbers { get; private set; }
+    public DelegateConstructor delegateConstructor { get; private set; }
+    public Func<float, Tweener> fade { get; private set; }
+    public Action<GameObject> firstLevelAction { get; private set; }
+    public Func<bool> CorrectAnswerAction { get; private set; }
 
     private void Start()
     {
         task = gameObject.GetComponent<Task>();
         field = gameObject.GetComponent<Field>();
         inputImages = gameObject.GetComponent<InputImages>();
-        textFadeEffect = taskField.GetComponent<FadeEffects>();
         randomNumbers = gameObject.GetComponent<RandomNumbers>();
-        anyStarParticleSystem = gameObject.GetComponentInChildren<ParticleSystem>();
-        firstLevelAction = (cell) =>
-           cell.GetComponent<ScalePuncher>()
-               .PunchScale(0.3f); //Разобраться с инкапсуляцией;
+        delegateConstructor = gameObject.GetComponent<DelegateConstructor>();
     }
     public int GetCellsCount() => Level * CellsInLineCount;
     public void ResetLevel() => Level = 0;
@@ -44,12 +42,12 @@ public class LevelLogic : MonoBehaviour
             inputImages.GetListLength());
         task.Create();
         yield return new WaitUntil(
-            () => anyStarParticleSystem.isStopped);
+            delegateConstructor.сorrectAnswerAction);
         yield return StartCoroutine(
             field.Create<CellConstructor>(
-                firstLevelAction)); //Разобраться, читаемо это, или нет;
+                delegateConstructor.firstLevelAction)); 
         yield return StartCoroutine(
             taskField.ChangeTaskField(
-                (float alfa) => textFadeEffect.ChangeAlfa(alfa))); //Разобраться с инкапсуляцией;
+                delegateConstructor.fade)); 
     }
 }

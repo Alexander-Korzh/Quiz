@@ -15,7 +15,7 @@ public class RandomNumbers : MonoBehaviour
         logic = gameObject.GetComponent<LevelLogic>();
         ListOfRandomNumbers = new List<int>(LevelLogic.MaxCellsCount);
     }
-    public void CreateList(int InputListCount)
+    public virtual void CreateList(int InputListCount)
     {
         ListOfRandomNumbers.Clear();
         while (ListOfRandomNumbers.Count < logic.GetCellsCount())

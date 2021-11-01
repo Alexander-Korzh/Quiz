@@ -17,12 +17,12 @@ public class Task : MonoBehaviour
         randomNumbers = gameObject.GetComponent<RandomNumbers>();
         logic = gameObject.GetComponent<LevelLogic>();
     }
-    public void Create()
+    public virtual void Create()
     {
         CorrectCellNumber = CreateCorrectCellNumber();
         //Debug.Log("Правильный ответ : " + correctImageName);
     }
-    public int CreateCorrectCellNumber(int cellNumber)
+    private int CreateCorrectCellNumber(int cellNumber)
     {
         TaskNumber = randomNumbers[cellNumber];
         if (previousTaskNumbers.Contains(TaskNumber))
@@ -30,7 +30,7 @@ public class Task : MonoBehaviour
         previousTaskNumbers.Add(TaskNumber);
         return cellNumber;
     }
-    public int CreateCorrectCellNumber()
+    public virtual int CreateCorrectCellNumber()
     {
         return CreateCorrectCellNumber(
             Random.Range(0, logic.GetCellsCount()));

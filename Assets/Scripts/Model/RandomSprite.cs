@@ -11,7 +11,7 @@ public class RandomSprite : MonoBehaviour
         inputImages = gameObject.GetComponent<InputImages>();
         randomNumbers = gameObject.GetComponent<RandomNumbers>();
     }
-    public Sprite Create(int cellNumber)
+    public virtual Sprite Create(int cellNumber)
     {
         return inputImages.GetImage(
             randomNumbers[cellNumber]);

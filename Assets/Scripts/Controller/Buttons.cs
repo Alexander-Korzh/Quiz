@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class Buttons : MonoBehaviour
 {
     public UnityEvent MouseDown;
-    void OnMouseDown()
+    protected virtual void OnMouseDown()
     {
         MouseDown.Invoke();
     }

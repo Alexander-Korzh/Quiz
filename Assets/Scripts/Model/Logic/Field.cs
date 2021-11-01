@@ -10,11 +10,8 @@ using UnityEngine;
 public class Field : MonoBehaviour
 {
     public GameObject cellPrefab;
-    [SerializeField]
     private List<GameObject> cells = new List<GameObject>(LevelLogic.MaxCellsCount);
-    [SerializeField]
     private CellPosition cellInLinePosition;
-    [SerializeField]
     private LevelLogic logic;
     private void Start()
     {

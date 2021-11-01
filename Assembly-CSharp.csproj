@@ -65,7 +65,8 @@
     <Compile Include="Assets\Scripts\Model\RandomNumbers.cs" />
     <Compile Include="Assets\Scripts\Model\Logic\Field.cs" />
     <Compile Include="Assets\Scripts\Model\Cell\CellImage.cs" />
-    <Compile Include="Assets\Scripts\Model\TweenMode.cs" />
+    <Compile Include="Assets\Scripts\View\TweenMode.cs" />
+    <Compile Include="Assets\Scripts\Model\Cell\ICell.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Transform\ScaleChanger.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Fade\FadeIn.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
@@ -92,7 +93,7 @@
     <Compile Include="Assets\Scripts\View\Effects\Transform\Bounce.cs" />
     <Compile Include="Assets\Scripts\Model\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Model\Task.cs" />
-    <Compile Include="Assets\Scripts\Model\Cell\ICell.cs" />
+    <Compile Include="Assets\Scripts\Model\DelegateConstructor.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\DOTween\DOTween.XML" />
