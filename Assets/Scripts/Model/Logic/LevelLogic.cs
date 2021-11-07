@@ -13,16 +13,19 @@ public class LevelLogic : MonoBehaviour
     public const int CellsInLineCount = 3; 
     public const int MaxLevel = 3;
     public const int MaxCellsCount = MaxLevel * CellsInLineCount;
-    public int Level { get; private set; } = 0;
-    public TaskField taskField;
-    public Task task { get; private set; }
-    public Field field { get; private set; }
-    public InputImages inputImages { get; private set; }
-    public RandomNumbers randomNumbers { get; private set; }
-    public DelegateConstructor delegateConstructor { get; private set; }
-    public Func<float, Tweener> fade { get; private set; }
-    public Action<GameObject> firstLevelAction { get; private set; }
-    public Func<bool> CorrectAnswerAction { get; private set; }
+    public int Level = 0;
+    [SerializeField]
+    private TaskField taskField;
+    [SerializeField]
+    private Task task;
+    [SerializeField]
+    private Field field;
+    [SerializeField]
+    private InputImages inputImages;
+    [SerializeField]
+    private RandomNumbers randomNumbers;
+    [SerializeField]
+    private DelegateConstructor delegateConstructor;
 
     private void Start()
     {

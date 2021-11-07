@@ -1027,7 +1027,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee5124629895fa479cbbe131a2a1f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: 0
   taskField: {fileID: 1234270146}
+  task: {fileID: 0}
+  field: {fileID: 0}
+  inputImages: {fileID: 0}
+  randomNumbers: {fileID: 0}
+  delegateConstructor: {fileID: 1317037713}
 --- !u!4 &1317037701
 Transform:
   m_ObjectHideFlags: 0
@@ -1314,6 +1320,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b993d2d15f146f4fabfaa115dba0f7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  logic: {fileID: 0}
+  field: {fileID: 0}
+  inputImages: {fileID: 0}
+  task: {fileID: 0}
+  delegateConstructor: {fileID: 1317037713}
 --- !u!114 &1317037712
 MonoBehaviour:
   m_ObjectHideFlags: 0

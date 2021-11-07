@@ -11,7 +11,7 @@ public class DelegateConstructor : MonoBehaviour
     public Action<GameObject> firstLevelAction { get; private set; }
     public Func<bool> ñorrectAnswerAction { get; private set; }
 
-    void Start()
+    void Awake()
     {
         fade = (float alfa) =>
             taskFieldFade.ChangeAlfa(alfa);
