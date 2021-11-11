@@ -1,18 +1,8 @@
 using UnityEngine;
 
-public class ButtonFeedback : ScaleChanger
+public class ButtonFeedback : MonoBehaviour
 {
-    //protected ScaleChanger scaleChanger;
-    //private void Awake()
-    //{
-    //    scaleChanger = gameObject.GetComponent<ScaleChanger>();
-    //} 
-    void OnMouseDown()
-    {
-        ChangeScale(1.1f);
-    }
-    void OnMouseUp()
-    {
-        ChangeScale(1.0f);
-    }
+    [SerializeField] protected ScaleChanger scaleChanger;
+    void OnMouseDown() => scaleChanger.ChangeScale(1.1f);
+    void OnMouseUp() => scaleChanger.ChangeScale(1.0f);
 }

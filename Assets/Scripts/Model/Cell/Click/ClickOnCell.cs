@@ -1,24 +1,23 @@
 using UnityEngine;
+
+
 /// <summary>
 ///  Класс для проверки соответствия изображения на клетке заданию
 /// </summary>
 public class ClickOnCell : MonoBehaviour
 {
-    [SerializeField]
-    private Task task;
-    [SerializeField]
-    private CorrectClick correctClick;
-    [SerializeField]
-    private IncorrectClick incorrectClick;
-    [SerializeField]
-    private CellData cellData;
-    private void Start()
-    {
-        task = transform.root.GetComponent<Task>();
-        cellData = gameObject.GetComponent<CellData>();
-        correctClick = gameObject.GetComponent<CorrectClick>();
-        incorrectClick = gameObject.GetComponent<IncorrectClick>();
-    }
+    #region Fields
+
+    [SerializeField] private Task task;
+    [SerializeField] private CorrectClick correctClick;
+    [SerializeField] private IncorrectClick incorrectClick;
+    [SerializeField] private CellData cellData;
+
+    #endregion
+
+    #region Methods
+
+    private void Start() => task = transform.root.GetComponent<Task>();
     public void CheckAnswer()
     {
         if (cellData.Number == task.CorrectCellNumber)
@@ -30,4 +29,6 @@ public class ClickOnCell : MonoBehaviour
             incorrectClick.DoActions();
         }
     }
+
+    #endregion
 }

@@ -1,10 +1,9 @@
+using UnityEngine;
+
 public class EasyInBounce : PositionPuncher
 {
-    protected TweenMode tweenMode;
-    private void Awake()
-    {
-        tweenMode = gameObject.GetComponent<TweenMode>();
-    }
+    [SerializeField] protected TweenMode tweenMode;
+
     public void DoEffect()
     {
         tweenMode.DoUnclicable ( 

@@ -3,31 +3,34 @@ using UnityEngine;
 
 public class Task : MonoBehaviour
 {
+    #region Properties
     public int TaskNumber { get; private set; }
     public int CorrectCellNumber { get; private set; }
-    [SerializeField]
-    private HashSet<int> previousTaskNumbers;
-    [SerializeField]
-    private RandomNumbers randomNumbers;
-    [SerializeField]
-    private LevelLogic logic;
-    private void Start()
-    {
-        previousTaskNumbers = new HashSet<int>();
-        randomNumbers = gameObject.GetComponent<RandomNumbers>();
-        logic = gameObject.GetComponent<LevelLogic>();
-    }
-    public virtual void Create()
-    {
-        CorrectCellNumber = CreateCorrectCellNumber();
-        //Debug.Log("Правильный ответ : " + correctImageName);
-    }
+
+    #endregion
+
+    #region Fields
+
+    [SerializeField] private HashSet<int> previousTaskNumbers;
+    [SerializeField] private RandomNumbers randomNumbers;
+    [SerializeField] private LevelLogic logic;
+
+    #endregion
+
+    #region Methods
+
+    private void Start() => previousTaskNumbers = new HashSet<int>();
+    public virtual void Create() => CorrectCellNumber = CreateCorrectCellNumber();
+    public void ClearPreviousTaskNumbers() => previousTaskNumbers.Clear();
     private int CreateCorrectCellNumber(int cellNumber)
     {
         TaskNumber = randomNumbers[cellNumber];
+
         if (previousTaskNumbers.Contains(TaskNumber))
             cellNumber = CreateCorrectCellNumber();
+
         previousTaskNumbers.Add(TaskNumber);
+
         return cellNumber;
     }
     public virtual int CreateCorrectCellNumber()
@@ -35,8 +38,6 @@ public class Task : MonoBehaviour
         return CreateCorrectCellNumber(
             Random.Range(0, logic.GetCellsCount()));
     }
-    public void ClearPreviousTaskNumbers()
-    {
-        previousTaskNumbers.Clear();
-    }
+
+    #endregion
 }

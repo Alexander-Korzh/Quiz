@@ -77,7 +77,6 @@
     <Compile Include="Assets\Scripts\View\Effects\Transform\EasyInBounce.cs" />
     <Compile Include="Assets\Scripts\View\Stars.cs" />
     <Compile Include="Assets\Scripts\View\Effects\Transform\PositionPuncher.cs" />
-    <Compile Include="Assets\Scripts\Model\Cell\Content.cs" />
     <Compile Include="Assets\Scripts\Model\Cell\CellPosition.cs" />
     <Compile Include="Assets\Scripts\Model\Cell\Click\IncorrectClick.cs" />
     <Compile Include="Assets\DOTween\Modules\DOTweenModuleAudio.cs" />
@@ -91,6 +90,7 @@
     <Compile Include="Assets\Scripts\View\Effects\Transform\Bounce.cs" />
     <Compile Include="Assets\Scripts\Model\RandomSprite.cs" />
     <Compile Include="Assets\Scripts\Model\Task.cs" />
+    <Compile Include="Assets\Scripts\View\СountdownSlider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\DOTween\DOTween.XML" />

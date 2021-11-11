@@ -1,25 +1,40 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
+
+
 /// <summary>
 ///  Êëàññ äëÿ õğàíåíèÿ äåëåãàòîâ;
 /// </summary>
 public class DelegateConstructor : MonoBehaviour
 {
-    public FadeEffects taskFieldFade;
+
+    #region Properties
+
     public Func<float, Tweener> fade { get; private set; }
     public Action<GameObject> firstLevelAction { get; private set; }
     public Func<bool> ñorrectAnswerAction { get; private set; }
 
+    #endregion
+
+    #region Fields
+
+    [SerializeField] private FadeEffects taskFieldFade;
+    [SerializeField] private ParticleSystem stars;
+
+    #endregion
+
     void Awake()
     {
         fade = (float alfa) =>
-            taskFieldFade.ChangeAlfa(alfa);
+            taskFieldFade
+                .ChangeAlfa(alfa);
+
         firstLevelAction = (cell) =>
-           cell.GetComponent<ScalePuncher>()
-               .PunchScale(0.3f);
-        ñorrectAnswerAction = () => 
-            gameObject.GetComponentInChildren<ParticleSystem>()
-                        .isStopped;
+           cell
+                .GetComponent<ScalePuncher>()
+                .PunchScale(0.3f);
+
+        ñorrectAnswerAction = () => stars.isStopped;
     }
 }

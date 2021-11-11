@@ -1,7 +1,5 @@
 // Author: Alexander Kozhikhov - https://github.com/Alexander-Korzh
 
-using DG.Tweening;
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -10,30 +8,35 @@ using UnityEngine;
 /// </summary>
 public class LevelLogic : MonoBehaviour
 {
+    public int Level { get; private set; } = 0;
+
+    #region Fields 
+
     public const int CellsInLineCount = 3; 
     public const int MaxLevel = 3;
     public const int MaxCellsCount = MaxLevel * CellsInLineCount;
-    public int Level = 0;
-    [SerializeField]
-    private TaskField taskField;
-    [SerializeField]
-    private Task task;
-    [SerializeField]
-    private Field field;
-    [SerializeField]
-    private InputImages inputImages;
-    [SerializeField]
-    private RandomNumbers randomNumbers;
-    [SerializeField]
-    private DelegateConstructor delegateConstructor;
 
-    private void Start()
+    public float timeLeft = 60;
+
+    [SerializeField] private float speed;
+    [SerializeField] private TaskField taskField;
+    [SerializeField] private Task task;
+    [SerializeField] private Field field;
+    [SerializeField] private InputImages inputImages;
+    [SerializeField] private RestartLogic restartLogic;
+    [SerializeField] private RandomNumbers randomNumbers;
+    [SerializeField] private DelegateConstructor delegateConstructor;
+
+    #endregion
+
+    #region Methods
+
+    private void Start() => speed = 1;
+    public void Update()
     {
-        task = gameObject.GetComponent<Task>();
-        field = gameObject.GetComponent<Field>();
-        inputImages = gameObject.GetComponent<InputImages>();
-        randomNumbers = gameObject.GetComponent<RandomNumbers>();
-        delegateConstructor = gameObject.GetComponent<DelegateConstructor>();
+        timeLeft -= speed * Time.deltaTime;
+
+        if ( timeLeft < 0 ) restartLogic.Restart();
     }
     public int GetCellsCount() => Level * CellsInLineCount;
     public void ResetLevel() => Level = 0;
@@ -41,16 +44,23 @@ public class LevelLogic : MonoBehaviour
     public IEnumerator NextLevelCoroutine()
     {
         ++Level;
+
         randomNumbers.CreateList(
             inputImages.GetListLength());
+
         task.Create();
+
         yield return new WaitUntil(
             delegateConstructor.ñorrectAnswerAction);
+
         yield return StartCoroutine(
             field.Create<CellConstructor>(
                 delegateConstructor.firstLevelAction)); 
+
         yield return StartCoroutine(
             taskField.ChangeTaskField(
                 delegateConstructor.fade)); 
     }
+
+    #endregion
 }

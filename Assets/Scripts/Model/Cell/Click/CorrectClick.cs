@@ -3,37 +3,40 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class CorrectClick : Content
+public class CorrectClick : MonoBehaviour
 {
-    [SerializeField]
-    private LevelLogic logic;
-    [SerializeField]
-    private Stars stars;
-    [SerializeField]
-    private RestartLogic restartLogic;
-    [SerializeField]
-    private Action contentBounceEffect;
+    #region Fields
+
+    [SerializeField] private Action BounceAction;
+    [SerializeField] private Bounce contentBounce;
+    [SerializeField] private LevelLogic logic;
+    [SerializeField] private RestartLogic restartLogic;
+    [SerializeField] private Stars stars;
+
+    #endregion
+
+    #region Methods
+
     private void Start()
     {
+        BounceAction = () => contentBounce.DoEffect();
+
         logic = transform.root.GetComponent<LevelLogic>();
-        stars = transform.root.GetComponent<Stars>();
+
         restartLogic = transform.root.GetComponent<RestartLogic>();
-        contentBounceEffect = () => 
-            content
-                .GetComponent<Bounce>()
-                .DoEffect();  // Уточнить, законно ли вообще так писать
+
+        stars = transform.root.GetComponent<Stars>();
     }
-    public void DoActions()
-    {
-        StartCoroutine(DoActionsCoroutine());
-        //Debug.Log("Правильно !!!!!");
-    }
+    public void DoActions() => StartCoroutine(DoActionsCoroutine());
     protected IEnumerator DoActionsCoroutine()
     {
         stars.Push();
-        contentBounceEffect.Invoke();
+
+        BounceAction.Invoke();
+
         yield return new WaitUntil(
             () => DOTween.TotalPlayingTweens() == 0);
+
         CheckMaxLevel();
     }
     public void CheckMaxLevel()
@@ -47,4 +50,6 @@ public class CorrectClick : Content
             logic.NextLevel();
         }    
     }
+
+    #endregion
 }

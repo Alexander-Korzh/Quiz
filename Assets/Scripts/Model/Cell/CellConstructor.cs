@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class CellConstructor : MonoBehaviour, ICell
 {
-    [SerializeField]
-    private CellData cellData;
-    [SerializeField]
-    private CellImage cellImage;
-    private void Awake()
-    {
-        cellData = gameObject.GetComponent<CellData>();
-        cellImage = gameObject.GetComponent<CellImage>();
-    }
+    #region Fields
+
+    [SerializeField] private CellData cellData;
+    [SerializeField] private CellImage cellImage;
+
+    #endregion
+
+    #region Methods
+
     public void UpdateCell(int cellNumber)
     {
         SetNumber(cellNumber);
+
         SetImage();
-        //Debug.Log("Клетка " + cellNumber + " создана");
     }
     public void SetNumber(int cellNumber) => cellData.SetNumber(cellNumber);
     public void SetImage()
@@ -23,4 +23,6 @@ public class CellConstructor : MonoBehaviour, ICell
         cellImage.InsertRandom(
             cellData.Number);
     }
+
+    #endregion
 }

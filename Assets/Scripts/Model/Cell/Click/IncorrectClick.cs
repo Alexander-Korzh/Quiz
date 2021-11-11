@@ -1,9 +1,7 @@
-public class IncorrectClick : Content
+using UnityEngine;
+
+public class IncorrectClick : MonoBehaviour
 {
-    public void DoActions()
-    {
-        content
-            .GetComponent<EasyInBounce>()
-            .DoEffect();
-    }
+    [SerializeField] private EasyInBounce contentEasyInBounce;
+    public void DoActions() => contentEasyInBounce.DoEffect();
 }

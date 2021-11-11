@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class ScalePuncher : MonoBehaviour
 {
-    public Tweener PunchScale(float endValue)
-    {
-        return transform.DOPunchScale(new Vector3(endValue, endValue, endValue), .25f);
-    }
+    public Tweener PunchScale(float endValue) => 
+
+        transform.DOPunchScale(new Vector3(endValue, endValue, endValue), .25f);
 }
