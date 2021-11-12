@@ -27,7 +27,8 @@ public class Field : MonoBehaviour
 
     public IEnumerator Create<T>(Action<GameObject> firstLevelAction) where T : ICell
     {
-        AddCells();
+
+        if (logic.Level <= LevelLogic.MaxLevel) AddCells();
 
         for (int cellNumber = 0; cellNumber < cells.Count; cellNumber++)
         {

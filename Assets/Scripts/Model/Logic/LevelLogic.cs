@@ -1,5 +1,6 @@
 // Author: Alexander Kozhikhov - https://github.com/Alexander-Korzh
 
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -16,8 +17,10 @@ public class LevelLogic : MonoBehaviour
     public const int MaxLevel = 3;
     public const int MaxCellsCount = MaxLevel * CellsInLineCount;
 
+    public static bool playMode = true;
     public float timeLeft = 60;
 
+    [SerializeField] private float speedStep;
     [SerializeField] private float speed;
     [SerializeField] private TaskField taskField;
     [SerializeField] private Task task;
@@ -31,23 +34,43 @@ public class LevelLogic : MonoBehaviour
 
     #region Methods
 
-    private void Start() => speed = 1;
+    private void Start()
+    {
+        speed = 1;
+        speedStep = 3f;
+    }
+
     public void Update()
     {
-        timeLeft -= speed * Time.deltaTime;
+        if (playMode) timeLeft -= speed * Time.deltaTime;
 
-        if ( timeLeft < 0 ) restartLogic.Restart();
+        if (timeLeft < 0)
+        {
+            speed = 1;
+
+            ResetTimer();
+
+            playMode = false;
+
+            restartLogic.Restart();
+        }
     }
-    public int GetCellsCount() => Level * CellsInLineCount;
+    public int GetCellsCount() => 
+        Level <= MaxLevel ? 
+            Level * CellsInLineCount : 
+            MaxLevel * CellsInLineCount; // Разобраться, читаемо это или нет;
     public void ResetLevel() => Level = 0;
+    public void ResetTimer() => timeLeft = 60;
     public void NextLevel() => StartCoroutine(NextLevelCoroutine());
     public IEnumerator NextLevelCoroutine()
     {
         ++Level;
 
+        speed += speedStep;
+
         randomNumbers.CreateList(
             inputImages.GetListLength());
-
+           
         task.Create();
 
         yield return new WaitUntil(

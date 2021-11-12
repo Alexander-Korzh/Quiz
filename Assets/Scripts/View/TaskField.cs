@@ -25,11 +25,15 @@ public class TaskField : MonoBehaviour
 
     public IEnumerator ChangeTaskField(Func<float,Tweener> fade)
     {
+        if (LevelLogic.playMode) LevelLogic.playMode = false;
+
         yield return fade(0).WaitForCompletion();
 
         textComponent.text = ShangeText();
 
         yield return fade(1).WaitForCompletion();
+
+        LevelLogic.playMode = true;
     }
     public string ShangeText()
     {

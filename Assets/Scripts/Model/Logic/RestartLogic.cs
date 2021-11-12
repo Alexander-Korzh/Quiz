@@ -7,6 +7,8 @@ public class RestartLogic : MonoBehaviour
 
     #region Fields
 
+    public static bool IsRestart;
+
     [SerializeField] protected NewGameLogic newGameLogic;
 
     #endregion
@@ -14,8 +16,11 @@ public class RestartLogic : MonoBehaviour
     #region Methods
 
     private void Start() => newGameLogic = gameObject.GetComponent<NewGameLogic>();
+    public void IsEnd() => IsRestart = false;
     public void Restart()
     {
+        IsRestart = true;
+
         newGameLogic.SmoothStart();
 
         System.GC.Collect();

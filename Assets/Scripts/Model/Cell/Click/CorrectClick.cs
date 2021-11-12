@@ -34,10 +34,13 @@ public class CorrectClick : MonoBehaviour
 
         BounceAction.Invoke();
 
-        yield return new WaitUntil(
-            () => DOTween.TotalPlayingTweens() == 0);
-
-        CheckMaxLevel();
+        if ( !RestartLogic.IsRestart )
+        {
+            LevelLogic.playMode = false;
+            logic.ResetTimer();
+            logic.NextLevel();
+        }
+        yield return null;
     }
     public void CheckMaxLevel()
     {

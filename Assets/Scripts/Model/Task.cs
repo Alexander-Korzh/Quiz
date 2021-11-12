@@ -29,6 +29,9 @@ public class Task : MonoBehaviour
         if (previousTaskNumbers.Contains(TaskNumber))
             cellNumber = CreateCorrectCellNumber();
 
+        if (logic.Level % LevelLogic.MaxLevel == 0)
+            ClearPreviousTaskNumbers();
+
         previousTaskNumbers.Add(TaskNumber);
 
         return cellNumber;

@@ -536,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723266111653489005, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5723266111653489005, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime1
@@ -865,6 +865,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1317037705}
+        m_TargetAssemblyTypeName: RestartLogic, Assembly-CSharp
+        m_MethodName: IsEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &935011733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1174,6 +1186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeft: 60
+  speedStep: 0
   speed: 0
   taskField: {fileID: 1234270146}
   task: {fileID: 1317037708}
@@ -2146,7 +2159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723266111653489005, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5723266111653489005, guid: b96e475887749084cb1a33359a1cac5b, type: 3}
       propertyPath: InitialModule.startSize.minMaxState
