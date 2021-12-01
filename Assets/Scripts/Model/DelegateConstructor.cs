@@ -4,8 +4,9 @@ using UnityEngine;
 
 
 /// <summary>
-///  Класс для хранения делегатов;
+///  Class for working and control delegates;
 /// </summary>
+
 public class DelegateConstructor : MonoBehaviour
 {
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 /// <summary>
-///  Класс для проверки соответствия изображения на клетке заданию
+///  Class for checking the correspondence of the image on the cell to the task
 /// </summary>
 public class ClickOnCell : MonoBehaviour
 {

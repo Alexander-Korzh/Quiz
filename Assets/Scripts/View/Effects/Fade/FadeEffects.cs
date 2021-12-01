@@ -4,8 +4,9 @@ using DG.Tweening;
 
 
 /// <summary>
-///  Класс для работы с эффектами прозрачности через DOTween
+///  Class for working with transparency effects using DOTween
 /// </summary>
+
 public class FadeEffects : MonoBehaviour
 {
     [SerializeField] private MaskableGraphic transparency;

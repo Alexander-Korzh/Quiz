@@ -6,7 +6,7 @@ public class CellPosition : MonoBehaviour
     #region Fields
 
     [SerializeField] private float cellSizeX = 0.95f; //
-    [SerializeField] private float cellSizeY = 0.95f; //Не гибко, поправить //P.S. Через ScriptableObject
+    [SerializeField] private float cellSizeY = 0.95f; //Not flexible, fix //P.S. Using ScriptableObject
     [SerializeField] private LevelLogic logic;
 
     #endregion

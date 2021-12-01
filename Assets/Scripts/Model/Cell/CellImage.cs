@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 /// <summary>
-///  Класс для управления изображением в поле Content префаба
+///  Class for managing the image in the Content field of the prefab
 /// </summary>
 public class CellImage : MonoBehaviour
 {

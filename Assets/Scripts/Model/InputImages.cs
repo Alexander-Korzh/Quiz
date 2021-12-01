@@ -3,11 +3,12 @@ using UnityEngine;
 
 
 /// <summary>
-///  Класс для работы с входными данными
+///  Class for working with input data
 /// </summary>
+
 public class InputImages : MonoBehaviour
 {
-    //TODO Возможно правильнее заменить весь класс на ScriptableObject
+    //TODO Maybe it will be better to change that class for Scriptable Object
     #region Fields
 
     public List<Sprite> firstInputSpriteList;

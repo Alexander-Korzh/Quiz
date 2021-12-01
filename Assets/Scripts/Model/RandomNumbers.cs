@@ -4,8 +4,9 @@ using UnityEngine;
 
 
 /// <summary>
-///   ласс дл€ создани€ списка рандомных неповтор€ющихс€ номеров
+/// Class for creating a list of random non-repeating numbers
 /// </summary>
+
 public class RandomNumbers : MonoBehaviour
 {
     #region Fields

@@ -5,9 +5,9 @@ using UnityEngine;
 
 
 /// <summary>
-///  Класс для работы с полем из клеток
+///  Class for creating and work with field of cells
 /// </summary>
-/// 
+
 
 [RequireComponent(typeof(LevelLogic))]
 [RequireComponent(typeof(CellPosition))]
@@ -34,9 +34,9 @@ public class Field : MonoBehaviour
         {
             GameObject cell = cells[cellNumber];
 
-            cell.GetComponent<T>()          // Тут получается, 
-                .UpdateCell(cellNumber);    // что мы должны быть уверены в наличии этого компонента у префаба,
-                                            // но это как будто полиморфизм. Разобраться
+            cell.GetComponent<T>()          // There is a situation, 
+                .UpdateCell(cellNumber);    // where we have to be sure that prefab has this component,
+                                            // But now it looks like polymorphism. Figure out
             if (logic.Level == 1) firstLevelAction(cell);
 
             yield return null;

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 
 /// <summary>
-///  Класс для работы с текстовым полем задания
+///  Class for working with a task text field
 /// </summary>
+
 public class TaskField : MonoBehaviour
 {
     #region Fields

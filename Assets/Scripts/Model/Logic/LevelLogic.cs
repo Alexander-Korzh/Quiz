@@ -1,14 +1,18 @@
 // Author: Alexander Kozhikhov - https://github.com/Alexander-Korzh
 
-using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 /// <summary>
-///   ласс дл€ управлени€ общей игровой логикой уровней
-/// </summary>
+///  Class for working and control common game logic
+/// </summary> 
+
 public class LevelLogic : MonoBehaviour
 {
+    public UnityEvent even;
+
     public int Level { get; private set; } = 0;
 
     #region Fields 
@@ -59,12 +63,19 @@ public class LevelLogic : MonoBehaviour
         Level <= MaxLevel ? 
             Level * CellsInLineCount : 
             MaxLevel * CellsInLineCount; // –азобратьс€, читаемо это или нет;
-    public void ResetLevel() => Level = 0;
+    public void Pause() => playMode = false;
     public void ResetTimer() => timeLeft = 60;
+    public void ResetLevel()
+    {
+        Level = 0;
+        speed = 1;
+    }
     public void NextLevel() => StartCoroutine(NextLevelCoroutine());
     public IEnumerator NextLevelCoroutine()
     {
         ++Level;
+
+        even.Invoke();
 
         speed += speedStep;
 
